@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пантеон пам'яті Чаплинщини</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #121417;
+            --card-bg: #1c2026;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent-gold: #d4af37;
+            --accent-gold-hover: #e5c158;
+            --border-color: #2d3748;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: rgba(18, 20, 23, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.3rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex: 1;
+            width: 100%;
+        }
+
+        .search-filter {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .search-filter input, .search-filter select {
+            flex: 1;
+            min-width: 250px;
+            padding: 0.8rem 1rem;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .search-filter input:focus, .search-filter select:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .heroes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .hero-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-gold);
+        }
+
+        .hero-photo {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            object-position: top;
+            background-color: #2a2f38;
+        }
+
+        .hero-info {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .hero-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .hero-dates {
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .hero-bio-snippet {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .btn-details {
+            display: inline-block;
+            text-align: center;
+            padding: 0.6rem 1rem;
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .hero-card:hover .btn-details {
+            background: var(--accent-gold);
+            color: var(--bg-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: rgba(18, 20, 23, 0.95);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Пантеон пам'яті Чаплинщини</h1>
+        <p>Вічна пам'ять і шана полеглим захисникам України</p>
+    </header>
+
+    <div class="container">
+        <!-- Панель пошуку та фільтрів -->
+        <div class="search-filter">
+            <input type="text" id="searchInput" placeholder="Пошук за прізвищем або ім'ям...">
+            <select id="settlementFilter">
+                <option value="">Усі населені пункти громади</option>
+                <option value="Чаплинка">смт Чаплинка</option>
+                <option value="Хрестівка">с. Хрестівка</option>
+                <option value="Преображенка">с. Преображенка</option>
+                <option value="Інші">Інші населені пункти</option>
+            </select>
+        </div>
+
+        <!-- Сітка героїв (каталог) -->
+        <div class="heroes-grid" id="heroesGrid">
+            <!-- Картка 1 -->
+            <div class="hero-card" onclick="openHero('hero-1.html')">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Герой" class="hero-photo">
+                <div class="hero-info">
+                    <h3 class="hero-name">Іванов Петро Петрович</h3>
+                    <div class="hero-dates">12.05.1985 — 14.03.2023</div>
+                    <p class="hero-bio-snippet">Маттрос, стрілець-санітар. Загинув під час виконання бойового завдання на Запорізькому напрямку...</p>
+                    <span class="btn-details">Детальніше спогади та шлях</span>
+                </div>
+            </div>
+
+            <!-- Картка 2 -->
+            <div class="hero-card" onclick="openHero('hero-2.html')">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" alt="Герой" class="hero-photo">
+                <div class="hero-info">
+                    <h3 class="hero-name">Коваленко Сергій Іванович</h3>
+                    <div class="hero-dates">03.09.1992 — 21.10.2023</div>
+                    <p class="hero-bio-snippet">Старший солдат, командир відділення. Вірний військовій присязі до останнього подиху...</p>
+                    <span class="btn-details">Детальніше спогади та шлях</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Чаплинська громада. Вічна пам'ять Героям.</p>
+    </footer>
+
+    <script>
+        // Простий приклад пошуку по картках прямо на сторінці
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.hero-card');
+            cards.forEach(card => {
+                const name = card.querySelector('.hero-name').textContent.toLowerCase();
+                card.style.display = name.includes(term) ? 'flex' : 'none';
+            });
+        });
+
+        function openHero(pageUrl) {
+            // У майбутньому сюди можна підключити перехід на окремий файл, наприклад window.location.href = pageUrl;
+            alert('Тут відкриватиметься окрема сторінка конкретного героя (наприклад, hero-1.html з повною біографією, фотогалереєю та спогадами родини).');
+        }
+    </script>
+</body>
+</html>
