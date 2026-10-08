@@ -151,4 +151,189 @@
             border-radius: 12px;
             padding: 2.5rem;
             margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .section-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.2rem;
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Сітка громад */
+        .hromadas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .hromada-item {
+            background: rgba(14, 10, 7, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+
+        .hromada-item h4 {
+            color: var(--accent-gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .hromada-item p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        /* Блок заклику */
+        .cta-box {
+            text-align: center;
+            background: radial-gradient(circle, rgba(229, 190, 100, 0.1) 0%, rgba(24, 18, 14, 0.9) 100%);
+            border: 1px solid var(--accent-gold);
+            border-radius: 12px;
+            padding: 2.5rem 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .cta-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .cta-box p {
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto 1.5rem;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: rgba(14, 10, 7, 0.95);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        @media(max-width: 768px) {
+            nav { display: none; }
+            header { padding: 1rem; }
+            .page-title { font-size: 2rem; }
+            .about-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <a href="index.html" class="logo-area">
+            <div class="logo-icon">🕯️</div>
+            <div class="logo-text">
+                <h2>Пантеон Чаплинського краю</h2>
+                <span>CHAPLYNKA-PANTEON.PP.UA</span>
+            </div>
+        </a>
+
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="book.html">Книга пам'яті</a>
+            <a href="about.html" class="active">Про проєкт</a>
+            <a href="add-hero.html">Додати героя</a>
+        </nav>
+
+        <a href="add-hero.html" class="btn-header">Подати інформацію</a>
+    </header>
+
+    <!-- Заголовок -->
+    <section class="page-header">
+        <h1 class="page-title">Про проєкт «Пантеон Чаплинського краю»</h1>
+        <p class="page-subtitle">Цифровий меморіал пам’яті Захисників і Захисниць Чаплинського краю</p>
+    </section>
+
+    <main class="content-container">
+        
+        <!-- Місія та автор проєкту -->
+        <article class="about-card">
+            <h2 class="section-heading">🕯️ Наша місія та автор ідеї</h2>
+            <div class="about-text">
+                <p><strong>«Пантеон Чаплинського краю»</strong> — це цифровий меморіал, створений за приватною ініціативою та авторським задумом <strong>Олександра Посунька</strong> з метою збереження, систематизації та вшанування пам'яті про кожного воїна, який віддав життя за свободу, суверенітет та територіальну цілісність України.</p>
+                <p>Війна забирає найкращих синів і дочок нашої землі. Попри тимчасову окупацію рідного краю, наша спільна пам'ять залишається вільною, міцною та живою. Авторська ідея проєкту полягає у створенні єдиного, відкритого та гідного онлайн-простору, який об'єднує інформацію про всіх Героїв, чия доля пов'язана із Чаплинщиною — щоб жодне ім'я, жоден життєвий шлях і подвиг не були забуті.</p>
+            </div>
+        </article>
+
+        <!-- Громади краю -->
+        <article class="about-card">
+            <h2 class="section-heading">🏛️ Громади Чаплинського краю</h2>
+            <div class="about-text">
+                <p>Меморіал охоплює Захисників та Захисниць із чотирьох територіальних громад нашого краю:</p>
+            </div>
+            <div class="hromadas-grid">
+                <div class="hromada-item">
+                    <h4>Чаплинська</h4>
+                    <p>смт Чаплинка та прилеглі села</p>
+                </div>
+                <div class="hromada-item">
+                    <h4>Хрестівська</h4>
+                    <p>с. Хрестівка та старостати</p>
+                </div>
+                <div class="hromada-item">
+                    <h4>Присиваська</h4>
+                    <p>с. Григорівка, Павлівка та присиваські села</p>
+                </div>
+                <div class="hromada-item">
+                    <h4>Асканія-Нова</h4>
+                    <p>смт Асканія-Нова та навколишні населені пункти</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Принципи формування -->
+        <article class="about-card">
+            <h2 class="section-heading">🤝 Наші принципи</h2>
+            <div class="about-text">
+                <p>• <strong>Повага та достовірність:</strong> Уся інформація публікується на основі підтверджених даних, наданих рідними, близькими, побратимами або з офіційних джерел.</p>
+                <p>• <strong>Рівність та вдячність:</strong> Кожен Захисник і Захисниця — від солдата до офіцера — має свою персональну пам'ятну сторінку з біографією, світлинами та спогадами.</p>
+                <p>• <strong>Відкритість до співпраці:</strong> Пантеон є живим електронним архівом, який постійно доповнюється завдяки небайдужим жителям громади.</p>
+            </div>
+        </article>
+
+        <!-- Заклик до дії -->
+        <div class="cta-box">
+            <h3>Долучіться до збереження пам'яті</h3>
+            <p>Якщо ви маєте інформацію, спогади або фотографії про загиблого Захисника з Чаплинського краю, поділіться ними з нами.</p>
+            <a href="add-hero.html" class="btn-header" style="font-size: 1rem; padding: 0.8rem 1.8rem;">Подати інформацію про Героя</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Чаплинський край. Вічна пам'ять Героям.</p>
+    </footer>
+
+</body>
+</html>
