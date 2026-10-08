@@ -134,128 +134,29 @@
             font-size: 1rem;
         }
 
-        /* Контейнер форми */
+        /* Контейнер для Google Форми */
         .form-container {
-            max-width: 780px;
+            max-width: 850px;
             margin: 0 auto 4rem;
             padding: 0 1.5rem;
             width: 100%;
             flex: 1;
         }
 
-        .form-card {
+        .google-form-wrapper {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 2.5rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .form-section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: var(--accent-gold);
-            margin-bottom: 1.2rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.5rem;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.2rem;
-            margin-bottom: 1.8rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
-
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
-
-        label {
-            font-size: 0.88rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        label span {
-            color: var(--accent-gold);
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        input[type="date"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            background: rgba(14, 10, 7, 0.6);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            color: var(--text-primary);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.95rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            border-color: var(--accent-gold);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        /* Завантаження файлу */
-        .file-upload-box {
-            border: 2px dashed var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-align: center;
-            background: rgba(14, 10, 7, 0.3);
-            cursor: pointer;
-            transition: border-color 0.3s;
-        }
-
-        .file-upload-box:hover {
-            border-color: var(--accent-gold);
-        }
-
-        .file-upload-box input {
-            display: none;
-        }
-
-        .file-label-text {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .btn-submit {
-            width: 100%;
             padding: 1rem;
-            background-color: var(--accent-gold);
-            color: var(--bg-color);
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            overflow: hidden;
         }
 
-        .btn-submit:hover {
-            background-color: var(--accent-gold-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(229, 190, 100, 0.3);
+        iframe {
+            width: 100%;
+            height: 900px;
+            border: none;
+            border-radius: 8px;
         }
 
         footer {
@@ -264,4 +165,55 @@
             background-color: rgba(14, 10, 7, 0.95);
             border-top: 1px solid var(--border-color);
             color: var(--text-secondary);
-            font-size: 0.8
+            font-size: 0.85rem;
+        }
+
+        @media(max-width: 768px) {
+            nav { display: none; }
+            header { padding: 1rem; }
+            iframe { height: 1100px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <a href="index.html" class="logo-area">
+            <div class="logo-icon">🕯️</div>
+            <div class="logo-text">
+                <h2>Чаплинка Пантеон</h2>
+                <span>CHAPLYNKA-PANTEON.PP.UA</span>
+            </div>
+        </a>
+
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="book.html">Книга пам'яті</a>
+            <a href="about.html">Про проєкт</a>
+            <a href="add-hero.html" class="active">Додати героя</a>
+        </nav>
+
+        <a href="add-hero.html" class="btn-header">Подати інформацію</a>
+    </header>
+
+    <!-- Заголовок -->
+    <section class="page-header">
+        <h1 class="page-title">Подати інформацію про Захисника</h1>
+        <p class="page-subtitle">Заповніть форму нижче, щоб надіслати біографію та фотографію для збереження пам'яті про Героя в Пантеоні Чаплинського краю.</p>
+    </section>
+
+    <!-- Вбудована Google Форма -->
+    <main class="form-container">
+        <div class="google-form-wrapper">
+            <!-- ВСТАВ СВОЄ ПОСИЛАННЯ НА GOOGLE ФОРМУ В АТРИБУТ src НИЖЧЕ -->
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc_YOUR_FORM_ID_HERE/viewform?embedded=true">Завантаження форми...</iframe>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Чаплинський край. Вічна пам'ять Героям.</p>
+    </footer>
+
+</body>
+</html>
