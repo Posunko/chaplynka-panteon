@@ -139,7 +139,7 @@
             color: var(--accent-gold);
         }
 
-        /* Верхній блок (Фото + Основні дані) */
+        /* Верхній блок */
         .hero-profile-header {
             display: grid;
             grid-template-columns: 320px 1fr;
@@ -233,7 +233,6 @@
             font-weight: 600;
         }
 
-        /* Текстові блоки (Життєпис, Спогади, Нагороди) */
         .content-section {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -313,13 +312,12 @@
         <!-- Основна картка Захисника -->
         <section class="hero-profile-header">
             <div class="profile-img-box">
-                <!-- Шлях до фото Героя -->
                <img src="heroes/kobec-sergy-chap.jpeg" alt="Кобець Сергій" class="profile-img">
                 <div class="mourning-ribbon"></div>
             </div>
 
             <div class="profile-info">
-                <span class="hero-badge-rank">Солдат / Звання</span>
+                <span class="hero-badge-rank">Солдат</span>
                 <h1 class="hero-fullname">Кобець Сергій Сергійович</h1>
                 
                 <ul class="info-list">
@@ -337,4 +335,33 @@
                     </li>
                     <li class="info-item">
                         <span class="info-label">Громада:</span>
-                        <span class="info-value">Чаплинська
+                        <span class="info-value">Чаплинська громада</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Розділ: Життєпис і Подвиг -->
+        <section class="content-section">
+            <h2 class="section-title">📖 Життєвий шлях та подвиг</h2>
+            <div class="bio-text">
+                <p>Тут розміщуватиметься біографія та історія служби Сергія Сергійовича.</p>
+            </div>
+        </section>
+
+        <!-- Розділ: Спогади -->
+        <section class="content-section">
+            <h2 class="section-title">🕯️ Пам'ять та спогади</h2>
+            <div class="bio-text">
+                <p><em>Вічна пам'ять та шана Герою!</em></p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Чаплинський край. Вічна пам'ять Героям.</p>
+    </footer>
+
+</body>
+</html>
