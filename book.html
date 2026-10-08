@@ -376,40 +376,21 @@
     <main class="main-container">
         <div class="heroes-grid" id="heroesGrid">
 
-            <!-- Приклад картки 1 -->
+            <!-- Картка Кобця Сергія -->
             <article class="hero-card" data-hromada="chaplynka">
                 <div class="card-img-container">
-                    <img src="https://via.placeholder.com/400x500/18120e/c2b19b?text=Фото+Героя" alt="Фото Захисника" class="hero-img">
+                    <img src="heroes/kobec-sergy-chap.jpeg" alt="Кобець Сергій" class="hero-img">
                     <div class="mourning-ribbon"></div>
                 </div>
                 <div class="card-body">
                     <div>
-                        <h3 class="hero-name">Прізвище Ім'я</h3>
+                        <h3 class="hero-name">Кобець Сергій Сергійович</h3>
                         <p class="hero-rank">Солдат</p>
                         <p class="hero-hromada">Чаплинська громада</p>
                     </div>
                     <div>
-                        <p class="hero-dates">01.01.1990 — 15.03.2023</p>
+                        <p class="hero-dates">27.03.1992 — 03.11.2024</p>
                         <a href="kobec-sergy-chap.html" class="btn-card">Пам'ятна сторінка</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Приклад картки 2 -->
-            <article class="hero-card" data-hromada="khrestivka">
-                <div class="card-img-container">
-                    <img src="https://via.placeholder.com/400x500/18120e/c2b19b?text=Фото+Героя" alt="Фото Захисника" class="hero-img">
-                    <div class="mourning-ribbon"></div>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <h3 class="hero-name">Прізвище Ім'я</h3>
-                        <p class="hero-rank">Сержант</p>
-                        <p class="hero-hromada">Хрестівська громада</p>
-                    </div>
-                    <div>
-                        <p class="hero-dates">12.05.1985 — 20.08.2022</p>
-                        <a href="#" class="btn-card">Пам'ятна сторінка</a>
                     </div>
                 </div>
             </article>
@@ -420,48 +401,8 @@
     <footer>
         <p>&copy; 2026 Чаплинський край. Вічна пам'ять Героям.</p>
     </footer>
-<article class="hero-card" data-hromada="chaplynka">
-    <div class="card-img-container">
-        <!-- Шлях до завантаженого фото -->
-        <img src="images/petrenko-ivan.jpg" alt="Петренко Іван" class="hero-img">
-        <div class="mourning-ribbon"></div>
-    </div>
-    <div class="card-body">
-        <div>
-            <h3 class="hero-name">Петренко Іван Олексійович</h3>
-            <p class="hero-rank">Сержант</p>
-            <p class="hero-hromada">Чаплинська громада</p>
-        </div>
-        <div>
-            <p class="hero-dates">15.05.1988 — 10.02.2023</p>
-            <!-- Посилання на створену персональну сторінку -->
-            <a href="petrenko-ivan.html" class="btn-card">Пам'ятна сторінка</a>
-        </div>
-    </div>
-</article>
 
-    <article class="hero-card" data-hromada="chaplynka">
-    <div class="card-img-container">
-        <!-- Фото для списку -->
-        <img src="heroes/kobec-sergy-chap.jpeg" alt="Кобець Сергій" class="hero-img">
-        <div class="mourning-ribbon"></div>
-    </div>
-    <div class="card-body">
-        <div>
-            <!-- Ім'я та дані для списку -->
-            <h3 class="hero-name">Кобець Сергій</h3>
-            <p class="hero-rank">Солдат</p>
-            <p class="hero-hromada">Чаплинська громада</p>
-        </div>
-        <div>
-            <p class="hero-dates">01.01.1990 — 15.03.2023</p>
-            <!-- Посилання на окремий файл із повною біографією -->
-            <a href="kobec-sergy-chap.html" class="btn-card">Пам'ятна сторінка</a>
-        </div>
-    </div>
-</article>
-    
-    <!-- Простий скрипт для швидкого пошуку на сторінці -->
+    <!-- Скрипт пошуку та фільтрації -->
     <script>
         const searchInput = document.getElementById('searchInput');
         const filterBtns = document.querySelectorAll('.filter-btn');
@@ -469,10 +410,8 @@
 
         let currentFilter = 'all';
 
-        // Пошук за текстом
         searchInput.addEventListener('input', filterHeroes);
 
-        // Фільтрація за громадами
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterBtns.forEach(b => b.classList.remove('active'));
