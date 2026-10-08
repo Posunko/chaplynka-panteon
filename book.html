@@ -246,16 +246,22 @@
             filter: grayscale(0%);
         }
 
-        /* Жалобна стрічка */
+        /* Пам'ятна кругла плашка зі свічкою */
         .mourning-ribbon {
             position: absolute;
             bottom: 12px;
             right: 12px;
-            width: 16px;
-            height: 32px;
-            background: #000;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 2px;
+            width: 36px;
+            height: 36px;
+            background: rgba(14, 10, 7, 0.85);
+            border: 1px solid var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+            z-index: 2;
         }
 
         .card-body {
@@ -380,7 +386,7 @@
             <article class="hero-card" data-hromada="chaplynka">
                 <div class="card-img-container">
                     <img src="heroes/kobec-sergy-chap.jpeg" alt="Кобець Сергій" class="hero-img">
-                    <div class="mourning-ribbon"></div>
+                    <div class="mourning-ribbon">🕯️</div>
                 </div>
                 <div class="card-body">
                     <div>
@@ -406,7 +412,6 @@
     <script>
         const searchInput = document.getElementById('searchInput');
         const filterBtns = document.querySelectorAll('.filter-btn');
-        const cards = document.querySelectorAll('.hero-card');
 
         let currentFilter = 'all';
 
@@ -423,6 +428,7 @@
 
         function filterHeroes() {
             const query = searchInput.value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.hero-card');
 
             cards.forEach(card => {
                 const name = card.querySelector('.hero-name').textContent.toLowerCase();
