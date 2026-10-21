@@ -246,6 +246,24 @@
             filter: grayscale(0%);
         }
 
+        /* Спеціальний бадж для Героїв неба / краю */
+        .hero-badge-sky {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(14, 10, 7, 0.9);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+            backdrop-filter: blur(4px);
+        }
+
         /* Пам'ятна кругла плашка зі свічкою */
         .mourning-ribbon {
             position: absolute;
@@ -375,6 +393,7 @@
             <button class="filter-btn" data-filter="khrestivka">Хрестівська</button>
             <button class="filter-btn" data-filter="prysyvaska">Присиваська</button>
             <button class="filter-btn" data-filter="ascania">Асканія-Нова</button>
+            <button class="filter-btn" data-filter="sky">Вартові нашого неба</button>
         </div>
     </section>
 
