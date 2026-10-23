@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пантеон Чаплинського краю — Меморіал Героїв</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0e0a07; 
+            --card-bg: #18120e;
+            --text-primary: #f5ebd9;
+            --text-secondary: #c2b19b;
+            --accent-gold: #e5be64; 
+            --accent-gold-hover: #ffdf8c;
+            --border-color: #382c21;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: radial-gradient(circle at 50% 20%, rgba(120, 85, 35, 0.15) 0%, rgba(14, 10, 7, 0.98) 75%);
+        }
+
+        /* Шапка */
+        header {
+            background-color: rgba(14, 10, 7, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.2rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(229, 190, 100, 0.2);
+            border: 2px solid var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .logo-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        .logo-text span {
+            font-size: 0.7rem;
+            color: var(--accent-gold);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-gold);
+        }
+
+        .btn-header {
+            padding: 0.6rem 1.4rem;
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .btn-header:hover {
+            background: var(--accent-gold);
+            color: var(--bg-color);
+        }
+
+        /* Головний банер */
+        .hero-banner {
+            max-width: 900px;
+            margin: 3.5rem auto 2.5rem;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+
+        .memorial-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border: 1px solid var(--accent-gold);
+            border-radius: 30px;
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.8rem;
+            background: rgba(229, 190, 100, 0.05);
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 5vw, 3.2rem);
+            line-height: 1.25;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            word-wrap: break-word;
+        }
+
+        .hero-description {
+            font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .btn-primary {
+            padding: 0.9rem 2.2rem;
+            background: var(--accent-gold);
+            color: var(--bg-color);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(229, 190, 100, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-gold-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            padding: 0.9rem 2.2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        /* Розділ інформації та громад */
+        .info-section {
+            max-width: 1100px;
+            margin: 3rem auto 4rem;
+            padding: 0 1.5rem;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+        }
+
+        .hromadas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .hromada-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .hromada-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        .hromada-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .hromada-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .hromada-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Підвал */
+        footer {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background-color: rgba(14, 10, 7, 0.95);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1.2rem;
+                padding: 1.2rem 1rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .cta-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 320px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <a href="index.html" class="logo-area">
+            <div class="logo-icon">🕯️</div>
+            <div class="logo-text">
+                <h2>Пантеон Чаплинського краю</h2>
+                <span>CHAPLYNKA-PANTEON.PP.UA</span>
+            </div>
+        </a>
+
+        <nav>
+            <a href="index.html" class="active">Головна</a>
+            <a href="book.html">Книга пам'яті</a>
+            <a href="about.html">Про проєкт</a>
+            <a href="add-hero.html">Додати героя</a>
+        </nav>
+
+        <a href="add-hero.html" class="btn-header">Подати інформацію</a>
+    </header>
+
+    <!-- Головний банер -->
+    <main class="hero-banner">
+        <div class="memorial-badge">Вічна пам'ять незламним</div>
+        
+        <h1 class="hero-title">Герої не вмирають,<br>вони живі в наших серцях</h1>
+        
+        <p class="hero-description">
+            Цифровий меморіал Чаплинського району Херсонської області. 
+            Тут ми зберігаємо імена, історії та подвиги кожного Захисника і Захисниці, які віддали життя за свободу України.
+        </p>
+
+        <div class="cta-group">
+            <a href="book.html" class="btn-primary">Перейти до Книги пам'яті</a>
+            <a href="about.html" class="btn-secondary">Про ініціативу</a>
+        </div>
+    </main>
+
+    <!-- Блок громад -->
+    <section class="info-section">
+        <h2 class="section-heading">Громади Чаплинського краю</h2>
+        
+        <div class="hromadas-grid">
+            <div class="hromada-card">
+                <div class="hromada-icon">🌾</div>
+                <h3 class="hromada-title">Чаплинська</h3>
+                <p class="hromada-desc">смт Чаплинка та прилеглі села</p>
+            </div>
+            <div class="hromada-card">
+                <div class="hromada-icon">🕊️</div>
+                <h3 class="hromada-title">Хрестівська</h3>
+                <p class="hromada-desc">с. Хрестівка та населені пункти громади</p>
+            </div>
+            <div class="hromada-card">
+                <div class="hromada-icon">🌊</div>
+                <h3 class="hromada-title">Присиваська</h3>
+                <p class="hromada-desc">с. Григорівка та присиваські села</p>
+            </div>
+            <div class="hromada-card">
+                <div class="hromada-icon">🌲</div>
+                <h3 class="hromada-title">Асканія-Нова</h3>
+                <p class="hromada-desc">смт Асканія-Нова та навколишні села</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Підвал -->
+    <footer>
+        <p>&copy; 2026 Олександр Посунько. Вічна пам'ять Героям.</p>
+    </footer>
+
+</body>
+</html>
