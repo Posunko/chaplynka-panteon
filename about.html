@@ -154,23 +154,39 @@
             margin-bottom: 2rem;
         }
 
-        .content-card {
+        /* Уніфіковані картки для всього контенту з центрованим текстом */
+        .content-card, .cta-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 2.5rem;
+            padding: 2.5rem 2rem;
             margin-bottom: 2rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        .content-card h2 {
+        .cta-card {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 20px rgba(229, 190, 100, 0.1);
+        }
+
+        .content-card h2, .cta-card h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
             color: var(--accent-gold);
             margin-bottom: 1.2rem;
             text-align: center;
             position: relative;
             padding-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .cta-card h2 {
+            color: var(--text-primary);
         }
 
         .content-card h2::after {
@@ -182,53 +198,28 @@
             margin: 0.6rem auto 0;
         }
 
-        .content-card p {
+        .content-card p, .cta-card p {
             margin-bottom: 1.2rem;
             color: var(--text-primary);
             font-size: 1.05rem;
-            text-align: justify;
+            text-align: center;
+            max-width: 750px;
+            line-height: 1.7;
+        }
+
+        .cta-card p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 1.8rem;
         }
 
         .content-card p:last-child {
             margin-bottom: 0;
         }
 
-        /* Акцентні картки заклику та підтримки — вирівняні рівно по центру та по ширині інших блоків */
-        .cta-card {
-            background: var(--card-bg);
-            border: 1px solid var(--accent-gold);
-            border-radius: 12px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            width: 100%;
-            margin: 2.5rem 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 20px rgba(229, 190, 100, 0.1);
-        }
-
         .cta-card .jar-icon {
             font-size: 2.4rem;
             margin-bottom: 0.5rem;
-        }
-
-        .cta-card h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.4rem, 4vw, 1.8rem);
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            line-height: 1.3;
-            text-align: center;
-        }
-
-        .cta-card p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            max-width: 600px;
-            margin: 0 auto 1.8rem;
-            line-height: 1.6;
         }
 
         .btn-primary {
@@ -266,120 +257,4 @@
             header {
                 flex-direction: column;
                 gap: 1.2rem;
-                padding: 1.2rem 1rem;
-            }
-
-            nav {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1rem;
-            }
-
-            .btn-header {
-                display: none;
-            }
-
-            .content-card {
-                padding: 1.5rem;
-            }
-
-            .content-card p {
-                text-align: left !important;
-            }
-
-            .cta-card {
-                padding: 2rem 1rem;
-                margin: 2rem 0;
-            }
-
-            .btn-primary {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Шапка -->
-    <header>
-        <a href="index.html" class="logo-area">
-            <div class="logo-icon">🕯️</div>
-            <div class="logo-text">
-                <h2>Пантеон Чаплинського краю</h2>
-                <span>CHAPLYNKA-PANTEON.PP.UA</span>
-            </div>
-        </a>
-
-        <nav>
-            <a href="index.html">Головна</a>
-            <a href="book.html">Книга пам'яті</a>
-            <a href="about.html" class="active">Про проєкт</a>
-            <a href="add-hero.html">Додати героя</a>
-        </nav>
-
-        <a href="add-hero.html" class="btn-header">Подати інформацію</a>
-    </header>
-
-    <main class="container">
-        <h1 class="page-title">Про проєкт «Пантеон Чаплинського краю»</h1>
-
-        <section class="content-card">
-            <h2>Місія меморіалу</h2>
-            <p>
-                «Пантеон Чаплинського краю» — це цифровий меморіальний простір, створений для збереження вічної пам’яті про Захисників і Захисниць України з Чаплинського району Херсонської області (Чаплинської, Хрестівської, Присиваської та Асканія-Нова громад).
-            </p>
-            <p>
-                Незважаючи на тимчасову окупацію нашої рідної землі, ми дбайливо збираємо та фіксуємо кожне ім'я, кожне обличчя та кожну історію подвигу людей, які віддали своє життя за свободу та незалежність Батьківщини.
-            </p>
-        </section>
-
-        <section class="content-card">
-            <h2>Автор та засновник проєкту</h2>
-            <p>
-                Ініціатором, автором та розробником цифрового меморіалу є Олександр Леонідович Посунько — уродженець і житель Чаплинського краю.
-            </p>
-            <p>
-                Метою створення цього ресурсу є збереження історичної пам'яті про земляків, створення єдиної достовірної бази даних про Героїв, які визволяли та боронили українську землю.
-            </p>
-        </section>
-
-        <section class="content-card">
-            <h2>Чому це важливо</h2>
-            <p>
-                Пам'ять — це наша головна зброя проти забуття. Кожен Герой заслуговує на те, щоб його внесок у майбутнє України пам'ятали земляки, побратими та майбутні покоління.
-            </p>
-            <p>
-                Цей сайт розвивається як народний меморіал, де інформація постійно доповнюється та уточнюється за сприяння рідних, близьких, побратими та жителів Чаплинщини.
-            </p>
-        </section>
-
-        <!-- Блок підтримки через Monobank -->
-        <section class="cta-card">
-            <div class="jar-icon">🫙</div>
-            <h2>Підтримати розвиток проєкту</h2>
-            <p>
-                Ваша підтримка допомагає оплачувати домен, хостинг та підтримувати функціонування цифрового меморіалу.
-            </p>
-            <a href="https://send.monobank.ua/jar/9H7K96TJeb" target="_blank" rel="noopener noreferrer" class="btn-primary">
-                🪙 Поповнити банку
-            </a>
-        </section>
-
-        <!-- Блок заклику -->
-        <section class="cta-card">
-            <h2>Долучіться до збереження пам'яті</h2>
-            <p>
-                Якщо ви маєте інформацію, спогади або фотографії про загиблого Захисника з Чаплинського краю, поділіться ними з нами.
-            </p>
-            <a href="add-hero.html" class="btn-primary">Подати інформацію про Героя</a>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Олександр Посунько. Вічна пам'ять Героям.</p>
-    </footer>
-
-</body>
-</html>
+                padding: 1.
