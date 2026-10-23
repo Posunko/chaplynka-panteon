@@ -218,4 +218,155 @@
         }
 
         .info-item {
-            display: flex
+            display: flex;
+            font-size: 0.95rem;
+            border-bottom: 1px dashed rgba(56, 44, 33, 0.6);
+            padding-bottom: 0.5rem;
+        }
+
+        .info-label {
+            width: 170px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .info-value {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .content-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .bio-text p {
+            margin-bottom: 1.2rem;
+            color: var(--text-primary);
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        .bio-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: rgba(14, 10, 7, 0.95);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        @media(max-width: 850px) {
+            nav { display: none; }
+            .hero-profile-header { grid-template-columns: 1fr; }
+            .profile-img-box { height: 350px; }
+            .hero-fullname { font-size: 1.8rem; }
+            .info-item { flex-direction: column; }
+            .info-label { width: 100%; margin-bottom: 0.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="../../index.html" class="logo-area">
+            <div class="logo-icon">🕯️</div>
+            <div class="logo-text">
+                <h2>Чаплинка Пантеон</h2>
+                <span>CHAPLYNKA-PANTEON.PP.UA</span>
+            </div>
+        </a>
+
+        <nav>
+            <a href="../../index.html">Головна</a>
+            <a href="../../book.html" class="active">Книга пам'яті</a>
+            <a href="../../about.html">Про проєкт</a>
+            <a href="../../add-hero.html">Додати героя</a>
+        </nav>
+
+        <a href="../../add-hero.html" class="btn-header">Подати інформацію</a>
+    </header>
+
+    <main class="hero-container">
+        <a href="../../book.html" class="back-link">← Повернутися до Книги пам'яті</a>
+
+        <section class="hero-profile-header">
+            <div class="profile-img-box">
+                <img src="img/hryshko-maksym-chap.jpeg" alt="Гришко Максим Сергійович" class="profile-img">
+                <div class="mourning-ribbon">🕯️</div>
+            </div>
+
+            <div class="profile-info">
+                <span class="hero-badge-rank">Захисник України</span>
+                <h1 class="hero-fullname">Гришко Максим Сергійович</h1>
+                
+                <ul class="info-list">
+                    <li class="info-item">
+                        <span class="info-label">Дата народження:</span>
+                        <span class="info-value">12 серпня 1988 року</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Дата загибелі:</span>
+                        <span class="info-value">11 червня 2023 року</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Населений пункт:</span>
+                        <span class="info-value">смт Чаплинка</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Громада:</span>
+                        <span class="info-value">Чаплинська громада</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Підрозділ:</span>
+                        <span class="info-value">Збройні Сили України</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">📖 Життєвий шлях та подвиг</h2>
+            <div class="bio-text">
+                <p>Гришко Максим Сергійович народився 12 серпня 1988 року в селищі Чаплинка Херсонської області. Зростав, навчався та будував життя на рідній Чаплинщині.</p>
+                <p>З початком повномасштабної агресії став на захист суверенітету та територіальної цілісності України. Виявив стійкість, мужність та відданість військовій присязі під час виконання бойових завдань.</p>
+                <p>11 червня 2023 року Захисник Максим Гришко загинув під час виконання бойового завдання у боротьбі за свободу та незалежність нашої держави.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">🕯️ Пам'ять та спогади</h2>
+            <div class="bio-text">
+                <p>Жителі Чаплинської громади та побратими зберігають світлу пам'ять про Максима як про сміливого воїна, щиру та надійну людину.</p>
+                <p><em>Вічна пам'ять та шана Герою!</em></p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Чаплинський край. Вічна пам'ять Героям.</p>
+    </footer>
+
+</body>
+</html>
