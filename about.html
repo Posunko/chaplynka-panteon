@@ -163,13 +163,24 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
+        /* Вирівнювання заголовків по центру з акцентною лінією */
         .content-card h2 {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
             color: var(--accent-gold);
             margin-bottom: 1.2rem;
-            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+            position: relative;
             padding-bottom: 0.5rem;
+        }
+
+        .content-card h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--accent-gold);
+            margin: 0.6rem auto 0;
         }
 
         .content-card p {
@@ -268,6 +279,7 @@
             color: var(--text-primary);
             margin-bottom: 1rem;
             line-height: 1.3;
+            text-align: center;
         }
 
         .cta-card p {
@@ -416,7 +428,7 @@
         <!-- Блок підтримки через Monobank -->
         <section class="jar-card">
             <div class="jar-content">
-                <div class="jar-icon">🫙</div>)
+                <div class="jar-icon">🫙</div>
                 <div class="jar-info">
                     <h3>Підтримати розвиток проєкту</h3>
                     <p>Ваша підтримка допомагає оплачувати домен, хостинг та підтримувати функціонування меморіалу.</p>
