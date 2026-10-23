@@ -163,7 +163,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
-        /* Вирівнювання заголовків по центру з акцентною лінією */
         .content-card h2 {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
@@ -194,83 +193,25 @@
             margin-bottom: 0;
         }
 
-        /* Стильний блок банки Monobank */
-        .jar-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--accent-gold);
-            border-radius: 12px;
-            padding: 1.8rem 2rem;
-            margin: 2.5rem 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1.5rem;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-        }
-
-        .jar-content {
-            display: flex;
-            align-items: center;
-            gap: 1.2rem;
-            flex: 1;
-        }
-
-        .jar-icon {
-            font-size: 2.2rem;
-            flex-shrink: 0;
-        }
-
-        .jar-info h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--text-primary);
-            font-size: 1.25rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .jar-info p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin: 0;
-            line-height: 1.5;
-        }
-
-        .btn-jar {
-            padding: 0.8rem 1.6rem;
-            background: rgba(229, 190, 100, 0.15);
-            border: 1px solid var(--accent-gold);
-            color: var(--accent-gold);
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        .btn-jar:hover {
-            background: var(--accent-gold);
-            color: var(--bg-color);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(229, 190, 100, 0.3);
-        }
-
-        /* Блок заклику (CTA) */
+        /* Акцентні картки заклику та підтримки — вирівняні рівно по центру та по ширині інших блоків */
         .cta-card {
             background: var(--card-bg);
             border: 1px solid var(--accent-gold);
             border-radius: 12px;
-            padding: 2.5rem 1.5rem;
+            padding: 2.5rem 2rem;
             text-align: center;
-            max-width: 700px;
-            margin: 3rem auto 1rem;
-            height: auto !important;
+            width: 100%;
+            margin: 2.5rem 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             box-shadow: 0 0 20px rgba(229, 190, 100, 0.1);
+        }
+
+        .cta-card .jar-icon {
+            font-size: 2.4rem;
+            margin-bottom: 0.5rem;
         }
 
         .cta-card h2 {
@@ -285,7 +226,7 @@
         .cta-card p {
             color: var(--text-secondary);
             font-size: 1rem;
-            max-width: 550px;
+            max-width: 600px;
             margin: 0 auto 1.8rem;
             line-height: 1.6;
         }
@@ -322,12 +263,11 @@
 
         /* Мобільна адаптація */
         @media (max-width: 768px) {
-    /* Виправляє неохайні пробіли на телефонах */
-    p, .bio-text p, .content-card p {
-        text-align: left !important;
-        hyphens: auto;
-    }
-}
+            header {
+                flex-direction: column;
+                gap: 1.2rem;
+                padding: 1.2rem 1rem;
+            }
 
             nav {
                 flex-wrap: wrap;
@@ -343,24 +283,13 @@
                 padding: 1.5rem;
             }
 
-            .jar-card {
-                flex-direction: column;
-                text-align: center;
-                padding: 1.5rem 1rem;
-            }
-
-            .jar-content {
-                flex-direction: column;
-            }
-
-            .btn-jar {
-                width: 100%;
-                text-align: center;
+            .content-card p {
+                text-align: left !important;
             }
 
             .cta-card {
                 padding: 2rem 1rem;
-                margin: 2rem 0.5rem 1rem;
+                margin: 2rem 0;
             }
 
             .btn-primary {
@@ -422,20 +351,18 @@
                 Пам'ять — це наша головна зброя проти забуття. Кожен Герой заслуговує на те, щоб його внесок у майбутнє України пам'ятали земляки, побратими та майбутні покоління.
             </p>
             <p>
-                Цей сайт розвивається як народний меморіал, де інформація постійно доповнюється та уточнюється за сприяння рідних, близьких, побратимів та жителів Чаплинщини.
+                Цей сайт розвивається як народний меморіал, де інформація постійно доповнюється та уточнюється за сприяння рідних, близьких, побратими та жителів Чаплинщини.
             </p>
         </section>
 
         <!-- Блок підтримки через Monobank -->
-        <section class="jar-card">
-            <div class="jar-content">
-                <div class="jar-icon">🫙</div>
-                <div class="jar-info">
-                    <h3>Підтримати розвиток проєкту</h3>
-                    <p>Ваша підтримка допомагає оплачувати домен, хостинг та підтримувати функціонування меморіалу.</p>
-                </div>
-            </div>
-            <a href="https://send.monobank.ua/jar/9H7K96TJeb" target="_blank" rel="noopener noreferrer" class="btn-jar">
+        <section class="cta-card">
+            <div class="jar-icon">🫙</div>
+            <h2>Підтримати розвиток проєкту</h2>
+            <p>
+                Ваша підтримка допомагає оплачувати домен, хостинг та підтримувати функціонування цифрового меморіалу.
+            </p>
+            <a href="https://send.monobank.ua/jar/9H7K96TJeb" target="_blank" rel="noopener noreferrer" class="btn-primary">
                 🪙 Поповнити банку
             </a>
         </section>
