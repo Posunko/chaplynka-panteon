@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Жибров Олександр Олександрович — Чаплинка Пантеон</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0e0a07; 
+            --card-bg: #18120e;
+            --text-primary: #f5ebd9;
+            --text-secondary: #c2b19b;
+            --accent-gold: #e5be64; 
+            --accent-gold-hover: #ffdf8c;
+            --border-color: #382c21;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: radial-gradient(circle at 50% 20%, rgba(120, 85, 35, 0.1) 0%, rgba(14, 10, 7, 0.95) 70%);
+        }
+
+        /* Шапка */
+        header {
+            background-color: rgba(14, 10, 7, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.2rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(229, 190, 100, 0.2);
+            border: 2px solid var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .logo-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        .logo-text span {
+            font-size: 0.7rem;
+            color: var(--accent-gold);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-gold);
+        }
+
+        .btn-header {
+            padding: 0.6rem 1.4rem;
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-header:hover {
+            background: var(--accent-gold);
+            color: var(--bg-color);
+        }
+
+        /* Контейнер персональної сторінки */
+        .hero-container {
+            max-width: 1000px;
+            margin: 2.5rem auto 4rem;
+            padding: 0 1.5rem;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* Кнопка Назад */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Верхній блок */
+        .hero-profile-header {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 2.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .profile-img-box {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background-color: #120e0a;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        /* Пам'ятна кругла плашка зі свічкою */
+        .mourning-ribbon {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            width: 38px;
+            height: 38px;
+            background: rgba(14, 10, 7, 0.85);
+            border: 1px solid var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-fullname {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            line-height: 1.25;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-badge-rank {
+            display: inline-block;
+            align-self: flex-start;
+            padding: 0.3rem 1rem;
+            background: rgba(229, 190, 100, 0.15);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .info-item {
+            display: flex;
+            font-size: 0.95rem;
+            border-bottom: 1px dashed rgba(56, 44, 33, 0.6);
+            padding-bottom: 0.5rem;
+        }
+
+        .info-label {
+            width: 170px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .info-value {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .content-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .bio-text p {
+            margin-bottom: 1.2rem;
+            color: var(--text-primary);
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        .bio-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: rgba(14, 10, 7, 0.95);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        @media(max-width: 850px) {
+            nav { display: none; }
+            .hero-profile-header { grid-template-columns: 1fr; }
+            .profile-img-box { height: 350px; }
+            .hero-fullname { font-size: 1.8rem; }
+            .info-item { flex-direction: column; }
+            .info-label { width: 100%; margin-bottom: 0.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <a href="../../index.html" class="logo-area">
+            <div class="logo-icon">🕯️</div>
+            <div class="logo-text">
+                <h2>Чаплинка Пантеон</h2>
+                <span>CHAPLYNKA-PANTEON.PP.UA</span>
+            </div>
+        </a>
+
+        <nav>
+            <a href="../../index.html">Головна</a>
+            <a href="../../book.html" class="active">Книга пам'яті</a>
+            <a href="../../about.html">Про проєкт</a>
+            <a href="../../add-hero.html">Додати героя</a>
+        </nav>
+
+        <a href="../../add-hero.html" class="btn-header">Подати інформацію</a>
+    </header>
+
+    <main class="hero-container">
+        <!-- Посилання Назад -->
+        <a href="../../book.html" class="back-link">← Повернутися до Книги пам'яті</a>
+
+        <!-- Основна картка Захисника -->
+        <section class="hero-profile-header">
+            <div class="profile-img-box">
+                <img src="img/zhybrov-oleksandr-sky.jpg" alt="Жибров Олександр Олександрович" class="profile-img">
+                <div class="mourning-ribbon">🕯️</div>
+            </div>
+
+            <div class="profile-info">
+                <span class="hero-badge-rank">Герой України | Полковник (посмертно)</span>
+                <h1 class="hero-fullname">Жибров Олександр Олександрович</h1>
+                
+                <ul class="info-list">
+                    <li class="info-item">
+                        <span class="info-label">Дата народження:</span>
+                        <span class="info-value">09 липня 1979 року</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Дата загибелі:</span>
+                        <span class="info-value">24 лютого 2022 року</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Місце загибелі:</span>
+                        <span class="info-value">смт Чаплинка, Херсонська область</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Посада:</span>
+                        <span class="info-value">Командир авіаційної ескадрильї</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Підрозділ:</span>
+                        <span class="info-value">299 БрТА (Су-25, бортовий №19)</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Нагороди:</span>
+                        <span class="info-value">Герой України (орден «Золота Зірка»), Орден «Богдана Хмельницького» III ст.</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Місце поховання:</span>
+                        <span class="info-value">Далекосхідне кладовище, м. Кропивницький</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Розділ: Життєпис і Подвиг -->
+        <section class="content-section">
+            <h2 class="section-title">📖 Життєвий шлях та подвиг</h2>
+            <div class="bio-text">
+                <p>Олександр Олександрович Жибров народився 9 липня 1979 року в місті Балхаш (Казахстан) у родині військового льотчика[cite: 11]. Походив із династії авіаторів: його батько, обидва діди та дядько присвятили життя військовій авіації[cite: 11]. Закінчив школу № 8 у місті Кропивницький та Харківський інститут Повітряних Сил[cite: 11]. За штурвалом літака перебував з 1998 року[cite: 11]. З 2014 року неодноразово виконував бойові завдання в зоні АТО/ОСС, навчав молоде покоління українських пілотів[cite: 11].</p>
+                
+                <p>24 лютого 2022 року, у перші години повномасштабного вторгнення рф, підполковник Олександр Жибров у складі авіаційної ланки вилетів на штурмовику Су-25 (бортовий номер 19) на зупинку ворожих колон, які проривалися з тимчасово окупованого Криму в напрямку Херсона[cite: 11].</p>
+
+                <p>Поблизу селища Чаплинка Олександр Жибров точним ударом знищив ворожу колону понтонно-мостової техніки окупантів, яка мала забезпечити форсування Дніпра[cite: 11]. Під час виконання завдання його літак зазнав ураження ворожими засобами ППО[cite: 11]. Охоплений полум'ям штурмовик підполковник Жибров спрямував на залишки колони російської військової техніки, віддавши життя за свободу України[cite: 11].</p>
+                
+                <p>Тіло загиблого пілота біля уламків літака знайшли місцеві мешканці окупованої Чаплинки та первозданно поховали на місцевому цвинтарі[cite: 11]. Згодом Героя було перепоховано на Алеї Слави Далекосхідного кладовища в місті Кропивницький[cite: 11].</p>
+            </div>
+        </section>
+
+        <!-- Розділ: Спогади -->
+        <section class="content-section">
+            <h2 class="section-title">🕯️ Пам'ять та спогади</h2>
+            <div class="bio-text">
+                <p>Подвиг Олександра Жиброва в небі над Чаплинкою у перші години війни зупинив швидке просування ворожих переправних засобів і став уособленням найвищої самопожертви українських авіаторів[cite: 11].</p>
+                <p>У жовтні 2026 року Указом Президента України полковнику Олександру Жиброву посмертно присвоєно звання Герой України з удостоєнням ордена «Золота Зірка»[cite: 11].</p>
+                <p><em>Вічна пам'ять та шана Вартовому нашого неба!</em></p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Чаплинський край. Вічна пам'ять Героям.</p>
+    </footer>
+
+</body>
+</html>
