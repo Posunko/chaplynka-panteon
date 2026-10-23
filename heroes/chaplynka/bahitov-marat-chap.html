@@ -275,14 +275,18 @@
             color: var(--text-secondary);
             font-size: 0.85rem;
         }
+@media (max-width: 850px) {
+    nav { display: none; }
+    .hero-profile-header { grid-template-columns: 1fr; }
+    .profile-img-box { height: 350px; }
+    .hero-fullname { font-size: 1.8rem; }
+    .info-item { flex-direction: column; }
+    .info-label { width: 100%; margin-bottom: 0.2rem; }
 
-        @media(max-width: 850px) {
-            nav { display: none; }
-            .hero-profile-header { grid-template-columns: 1fr; }
-            .profile-img-box { height: 350px; }
-            .hero-fullname { font-size: 1.8rem; }
-            .info-item { flex-direction: column; }
-            .info-label { width: 100%; margin-bottom: 0.2rem; }
+    /* Фікс великих пробілів у тексті біографії на телефонах */
+    .bio-text p { 
+        text-align: left !important; 
+    }
         }
     </style>
 </head>
