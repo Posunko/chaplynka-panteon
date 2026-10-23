@@ -33,7 +33,6 @@
             background-image: radial-gradient(circle at 50% 20%, rgba(120, 85, 35, 0.1) 0%, rgba(14, 10, 7, 0.95) 70%);
         }
 
-        /* Шапка */
         header {
             background-color: rgba(14, 10, 7, 0.95);
             border-bottom: 1px solid var(--border-color);
@@ -114,7 +113,6 @@
             color: var(--bg-color);
         }
 
-        /* Контейнер персональної сторінки */
         .hero-container {
             max-width: 1000px;
             margin: 2.5rem auto 4rem;
@@ -123,7 +121,6 @@
             width: 100%;
         }
 
-        /* Кнопка Назад */
         .back-link {
             display: inline-flex;
             align-items: center;
@@ -139,7 +136,6 @@
             color: var(--accent-gold);
         }
 
-        /* Верхній блок */
         .hero-profile-header {
             display: grid;
             grid-template-columns: 320px 1fr;
@@ -166,10 +162,9 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top center; /* Зберігає обличчя в кадрі */
+            object-position: top center;
         }
 
-        /* Пам'ятна кругла плашка зі свічкою */
         .mourning-ribbon {
             position: absolute;
             bottom: 12px;
@@ -277,4 +272,101 @@
             padding: 1.5rem;
             background-color: rgba(14, 10, 7, 0.95);
             border-top: 1px solid var(--border-color);
-            color: var
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        @media(max-width: 850px) {
+            nav { display: none; }
+            .hero-profile-header { grid-template-columns: 1fr; }
+            .profile-img-box { height: 350px; }
+            .hero-fullname { font-size: 1.8rem; }
+            .info-item { flex-direction: column; }
+            .info-label { width: 100%; margin-bottom: 0.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="../../index.html" class="logo-area">
+            <div class="logo-icon">🕯️</div>
+            <div class="logo-text">
+                <h2>Чаплинка Пантеон</h2>
+                <span>CHAPLYNKA-PANTEON.PP.UA</span>
+            </div>
+        </a>
+
+        <nav>
+            <a href="../../index.html">Головна</a>
+            <a href="../../book.html" class="active">Книга пам'яті</a>
+            <a href="../../about.html">Про проєкт</a>
+            <a href="../../add-hero.html">Додати героя</a>
+        </nav>
+
+        <a href="../../add-hero.html" class="btn-header">Подати інформацію</a>
+    </header>
+
+    <main class="hero-container">
+        <a href="../../book.html" class="back-link">← Повернутися до Книги пам'яті</a>
+
+        <section class="hero-profile-header">
+            <div class="profile-img-box">
+                <img src="img/drozd-oleksiy-chap.jpeg" alt="Дрозд Олексій Ігорович" class="profile-img">
+                <div class="mourning-ribbon">🕯️</div>
+            </div>
+
+            <div class="profile-info">
+                <span class="hero-badge-rank">Сержант | Позивний «Старшина»</span>
+                <h1 class="hero-fullname">Дрозд Олексій Ігорович</h1>
+                
+                <ul class="info-list">
+                    <li class="info-item">
+                        <span class="info-label">Дата народження:</span>
+                        <span class="info-value">21 березня 1994 року</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Дата загибелі:</span>
+                        <span class="info-value">26 грудня 2022 року</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Населений пункт:</span>
+                        <span class="info-value">смт Чаплинка</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Громада:</span>
+                        <span class="info-value">Чаплинська громада</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Підрозділ:</span>
+                        <span class="info-value">57 ОМПБр імені кошового отамана Костя Гордієнка</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">📖 Життєвий шлях та подвиг</h2>
+            <div class="bio-text">
+                <p>Дрозд Олексій Ігорович народився 21 березня 1994 року в селищі Чаплинка Херсонської області. Навчався в Чаплинській ЗОШ № 1. Змалку відрізнявся відповідальністю, сміливістю та любов'ю до рідного краю.</p>
+                <p>З початком повномасштабного вторгнення став на захист України у складі 57-ї окремої мотопіхотної бригади імені кошового отамана Костя Гордієнка. Зарекомендував себе як досвідчений сержант та надійний побратим.</p>
+                <p>26 грудня 2022 року сержант Олексій Дрозд загинув під час виконання бойового завдання із захисту суверенітету та територіальної цілісності України.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">🕯️ Пам'ять та спогади</h2>
+            <div class="bio-text">
+                <p>Побратими та жителі громади пам'ятають Олексія як мужнього Воїна, який до останнього подиху залишався вірним військовій присязі та своїй Батьківщині.</p>
+                <p><em>Вічна пам'ять та шана Герою!</em></p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Чаплинський край. Вічна пам'ять Героям.</p>
+    </footer>
+
+</body>
+</html>
