@@ -22,6 +22,11 @@
             padding: 0;
         }
 
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-color);
@@ -64,6 +69,7 @@
             align-items: center;
             justify-content: center;
             font-size: 1.3rem;
+            flex-shrink: 0;
         }
 
         .logo-text h2 {
@@ -107,6 +113,7 @@
             font-size: 0.9rem;
             font-weight: 600;
             transition: all 0.3s;
+            text-align: center;
         }
 
         .btn-header:hover {
@@ -124,9 +131,10 @@
 
         .page-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
             color: var(--text-primary);
             margin-bottom: 0.8rem;
+            word-wrap: break-word;
         }
 
         .page-subtitle {
@@ -219,6 +227,7 @@
             flex-direction: column;
             transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
             position: relative;
+            height: auto;
         }
 
         .hero-card:hover {
@@ -232,18 +241,22 @@
             height: 330px;
             position: relative;
             background-color: #120e0a;
+            overflow: hidden;
         }
 
+        /* Зображення з фокусом на обличчя/голову */
         .hero-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(25%);
-            transition: filter 0.3s;
+            object-position: top center; /* Запобігає обрізанню голови */
+            filter: grayscale(20%);
+            transition: filter 0.3s, transform 0.3s;
         }
 
         .hero-card:hover .hero-img {
             filter: grayscale(0%);
+            transform: scale(1.03);
         }
 
         /* Пам'ятна кругла плашка зі свічкою */
@@ -330,9 +343,26 @@
         }
 
         @media(max-width: 768px) {
-            nav { display: none; }
-            header { padding: 1rem; }
-            .page-title { font-size: 2rem; }
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .btn-header {
+                width: 100%;
+            }
+
+            .heroes-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -379,11 +409,11 @@
         </div>
     </section>
 
-    <!-- Сітка з картками (Алфавітний порядок) -->
+    <!-- Сітка з картками -->
     <main class="main-container">
         <div class="heroes-grid" id="heroesGrid">
 
-            <!-- 1. Бахітов Марат Фларитович (.jpeg) -->
+            <!-- 1. Бахітов Марат Фларитович -->
             <article class="hero-card" data-hromada="chaplynka">
                 <div class="card-img-container">
                     <img src="heroes/chaplynka/img/bahitov-marat-chap.jpeg" alt="Бахітов Марат Фларитович" class="hero-img">
@@ -402,7 +432,7 @@
                 </div>
             </article>
 
-            <!-- 2. Гришко Максим Сергійович (.jpeg) -->
+            <!-- 2. Гришко Максим Сергійович -->
             <article class="hero-card" data-hromada="chaplynka">
                 <div class="card-img-container">
                     <img src="heroes/chaplynka/img/hryshko-maksym-chap.jpeg" alt="Гришко Максим Сергійович" class="hero-img">
@@ -415,207 +445,4 @@
                         <p class="hero-hromada">Чаплинська громада</p>
                     </div>
                     <div>
-                        <p class="hero-dates">12.08.1988 — 11.06.2023</p>
-                        <a href="heroes/chaplynka/hryshko-maksym-chap.html" class="btn-card">Пам'ятна сторінка</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 3. Дрозд Олексій Ігорович (.jpeg) -->
-            <article class="hero-card" data-hromada="chaplynka">
-                <div class="card-img-container">
-                    <img src="heroes/chaplynka/img/drozd-oleksiy-chap.jpeg" alt="Дрозд Олексій Ігорович" class="hero-img">
-                    <div class="mourning-ribbon">🕯️</div>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <h3 class="hero-name">Дрозд Олексій Ігорович</h3>
-                        <p class="hero-rank">Сержант | «Старшина»</p>
-                        <p class="hero-hromada">Чаплинська громада</p>
-                    </div>
-                    <div>
-                        <p class="hero-dates">21.03.1994 — 26.12.2022</p>
-                        <a href="heroes/chaplynka/drozd-oleksiy-chap.html" class="btn-card">Пам'ятна сторінка</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 4. Житкевич Владислав Юрійович (.jpg) -->
-            <article class="hero-card" data-hromada="chaplynka">
-                <div class="card-img-container">
-                    <img src="heroes/chaplynka/img/zhytkevych-vladyslav-chap.jpg" alt="Житкевич Владислав Юрійович" class="hero-img">
-                    <div class="mourning-ribbon">🕯️</div>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <h3 class="hero-name">Житкевич Владислав Юрійович</h3>
-                        <p class="hero-rank">Старшина підрозділу</p>
-                        <p class="hero-hromada">Чаплинська громада</p>
-                    </div>
-                    <div>
-                        <p class="hero-dates">07.10.1997 — 11.12.2024</p>
-                        <a href="heroes/chaplynka/zhytkevych-vladyslav-chap.html" class="btn-card">Пам'ятна сторінка</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 5. Кобець Сергій Сергійович (.jpeg) -->
-            <article class="hero-card" data-hromada="chaplynka">
-                <div class="card-img-container">
-                    <img src="heroes/chaplynka/img/kobec-sergy-chap.jpeg" alt="Кобець Сергій Сергійович" class="hero-img">
-                    <div class="mourning-ribbon">🕯️</div>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <h3 class="hero-name">Кобець Сергій Сергійович</h3>
-                        <p class="hero-rank">Солдат</p>
-                        <p class="hero-hromada">Чаплинська громада</p>
-                    </div>
-                    <div>
-                        <p class="hero-dates">27.03.1992 — 03.11.2024</p>
-                        <a href="heroes/chaplynka/kobec-sergy-chap.html" class="btn-card">Пам'ятна сторінка</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 6. Кулик Артем Юрійович (.jpg) -->
-            <article class="hero-card" data-hromada="chaplynka">
-                <div class="card-img-container">
-                    <img src="heroes/chaplynka/img/kulyk-artem-chap.jpg" alt="Кулик Артем Юрійович" class="hero-img">
-                    <div class="mourning-ribbon">🕯️</div>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <h3 class="hero-name">Кулик Артем Юрійович</h3>
-                        <p class="hero-rank">Командир взводу</p>
-                        <p class="hero-hromada">Чаплинська громада</p>
-                    </div>
-                    <div>
-                        <p class="hero-dates">13.01.2004 — 11.04.2026</p>
-                        <a href="heroes/chaplynka/kulyk-artem-chap.html" class="btn-card">Пам'ятна сторінка</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 7. Лютий Павло Олексійович (.jpg) -->
-            <article class="hero-card" data-hromada="chaplynka">
-                <div class="card-img-container">
-                    <img src="heroes/chaplynka/img/lyutyy-pavlo-chap.jpg" alt="Лютий Павло Олексійович" class="hero-img">
-                    <div class="mourning-ribbon">🕯️</div>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <h3 class="hero-name">Лютий Павло Олексійович</h3>
-                        <p class="hero-rank">Старший сержант</p>
-                        <p class="hero-hromada">Чаплинська громада</p>
-                    </div>
-                    <div>
-                        <p class="hero-dates">25.06.1986 — 17.03.2026</p>
-                        <a href="heroes/chaplynka/lyutyy-pavlo-chap.html" class="btn-card">Пам'ятна сторінка</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 8. Сидоренко Володимир Сергійович (.jpeg) -->
-            <article class="hero-card" data-hromada="chaplynka">
-                <div class="card-img-container">
-                    <img src="heroes/chaplynka/img/sydorenko-volodymyr-chap.jpeg" alt="Сидоренко Володимир Сергійович" class="hero-img">
-                    <div class="mourning-ribbon">🕯️</div>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <h3 class="hero-name">Сидоренко Володимир Сергійович</h3>
-                        <p class="hero-rank">Молодший сержант</p>
-                        <p class="hero-hromada">Чаплинська громада</p>
-                    </div>
-                    <div>
-                        <p class="hero-dates">12.09.1989 — 06.09.2026</p>
-                        <a href="heroes/chaplynka/sydorenko-volodymyr-chap.html" class="btn-card">Пам'ятна сторінка</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 9. Заглушка для Захисника з мінімальною інформацією -->
-            <article class="hero-card" data-hromada="chaplynka">
-                <div class="card-img-container">
-                    <img src="heroes/no-photo.jpg" alt="Вічна пам'ять Герою" class="hero-img">
-                    <div class="mourning-ribbon">🕯️</div>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <h3 class="hero-name">Прізвище Ім'я По батькові</h3>
-                        <p class="hero-rank">Захисник України</p>
-                        <p class="hero-hromada">Чаплинська громада</p>
-                    </div>
-                    <div>
-                        <p class="hero-dates">00.00.0000 — 00.00.0000</p>
-                        <a href="template-minimal.html" class="btn-card">Пам'ятна сторінка</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 10. Заглушка для Вартових неба (фільтр sky) -->
-            <article class="hero-card" data-hromada="sky">
-                <div class="card-img-container">
-                    <img src="heroes/sky/img/sky-hero-sky.jpg" alt="Герой-льотчик" class="hero-img">
-                    <div class="mourning-ribbon">🕯️</div>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <h3 class="hero-name">Вартовий Нашого Неба</h3>
-                        <p class="hero-rank">Військовий льотчик</p>
-                        <p class="hero-hromada">Загинув у небі над Чаплинщиною</p>
-                    </div>
-                    <div>
-                        <p class="hero-dates">Захисник України</p>
-                        <a href="heroes/sky/sky-hero-sky.html" class="btn-card">Пам'ятна сторінка</a>
-                    </div>
-                </div>
-            </article>
-
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Олександр Посунько.</p>
-    </footer>
-
-    <!-- Скрипт пошуку та фільтрації -->
-    <script>
-        const searchInput = document.getElementById('searchInput');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-
-        let currentFilter = 'all';
-
-        searchInput.addEventListener('input', filterHeroes);
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentFilter = btn.getAttribute('data-filter');
-                filterHeroes();
-            });
-        });
-
-        function filterHeroes() {
-            const query = searchInput.value.toLowerCase().trim();
-            const cards = document.querySelectorAll('.hero-card');
-
-            cards.forEach(card => {
-                const name = card.querySelector('.hero-name').textContent.toLowerCase();
-                const hromada = card.getAttribute('data-hromada');
-
-                const matchesSearch = name.includes(query);
-                const matchesHromada = currentFilter === 'all' || hromada === currentFilter;
-
-                if (matchesSearch && matchesHromada) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-    </script>
-</body>
-</html>
+                        <p class="hero-dates">12.0
