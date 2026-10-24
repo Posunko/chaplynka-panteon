@@ -15,7 +15,39 @@
             --accent-gold-hover: #ffdf8c;
             --border-color: #382c21;
         }
+.page-feedback-block {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: rgba(229, 190, 100, 0.03);
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+}
 
+.feedback-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+}
+
+.btn-feedback {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-gold);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--accent-gold);
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.btn-feedback:hover {
+    background: var(--accent-gold);
+    color: var(--bg-color);
+}
         * {
             box-sizing: border-box;
             margin: 0;
@@ -368,7 +400,13 @@
         </section>
 
     </main>
-
+<!-- Розміщується в кінці контенту, перед footer -->
+<div class="page-feedback-block">
+    <p class="feedback-text">Вивели неточні дані або маєте доповнення до життєпису?</p>
+    <a href="mailto:posunko.oleksa@gmail.com?subject=Запит%20щодо%20сторінки:%20Дрозд%20Олексій%20Ігорович" class="btn-feedback">
+        ✉️ Повідомити про неточність або надіслати зауваження
+    </a>
+</div>
     <footer>
         <p>&copy; 2026 Чаплинський край. Вічна пам'ять Героям.</p>
     </footer>
