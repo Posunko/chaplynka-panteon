@@ -267,6 +267,39 @@
             margin-bottom: 0;
         }
 
+        .awards-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .award-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            background: rgba(229, 190, 100, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 1rem 1.2rem;
+            border-radius: 8px;
+        }
+
+        .award-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .award-title {
+            font-weight: 700;
+            color: var(--accent-gold);
+            font-size: 1.05rem;
+        }
+
+        .award-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
         footer {
             text-align: center;
             padding: 1.5rem;
@@ -283,6 +316,7 @@
             .hero-fullname { font-size: 1.8rem; }
             .info-item { flex-direction: column; }
             .info-label { width: 100%; margin-bottom: 0.2rem; }
+            .bio-text p { text-align: left !important; }
         }
     </style>
 </head>
@@ -326,7 +360,7 @@
                         <span class="info-value">21 березня 1994 року</span>
                     </li>
                     <li class="info-item">
-                        <span class="info-label">Дата загибелі:</span>
+                        <span class="info-label">Дата смерті:</span>
                         <span class="info-value">26 грудня 2022 року</span>
                     </li>
                     <li class="info-item">
@@ -338,8 +372,16 @@
                         <span class="info-value">Чаплинська громада</span>
                     </li>
                     <li class="info-item">
+                        <span class="info-label">Освіта:</span>
+                        <span class="info-value">Чаплинський аграрний ліцей</span>
+                    </li>
+                    <li class="info-item">
                         <span class="info-label">Підрозділ:</span>
-                        <span class="info-value">57 ОМПБр імені кошового отамана Костя Гордієнка</span>
+                        <span class="info-value">4 ОТБр ім. гетьмана Івана Виговського (раніше — 57 ОМПБр)</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Місце поховання:</span>
+                        <span class="info-value">м. Пустомити, Львівська область</span>
                     </li>
                 </ul>
             </div>
@@ -348,18 +390,25 @@
         <section class="content-section">
             <h2 class="section-title">📖 Життєвий шлях та подвиг</h2>
             <div class="bio-text">
-                <p>Дрозд Олексій Ігорович народився 21 березня 1994 року в селищі Чаплинка Херсонської області. Навчався в Чаплинській ЗОШ № 1. Змалку відрізнявся відповідальністю, сміливістю та любов'ю до рідного краю.</p>
-                <p>З початком повномасштабного вторгнення став на захист України у складі 57-ї окремої мотопіхотної бригади імені кошового отамана Костя Гордієнка. Зарекомендував себе як досвідчений сержант та надійний побратим.</p>
-                <p>26 грудня 2022 року сержант Олексій Дрозд загинув під час виконання бойового завдання із захисту суверенітету та територіальної цілісності України.</p>
+                <p>Дрозд Олексій (позивний «Старшина») – сержант Збройних сил України, боєць 4-ї окремої танкової бригади імені гетьмана Івана Виговського, учасник російсько-української війни.</p>
+                <p>Народився 21 березня 1994 р. в селищі Чаплинка Херсонської області. Закінчив місцеву школу, навчався в Чаплинському аграрному ліцеї за спеціальністю «водій-електрик». У цивільному житті захоплювався риболовлею та полюванням.</p>
+                <p>У вересні 2016 р. добровільно вступив до Збройних сил України, служив у лавах 57-ї окремої мотопіхотної бригади імені кошового отамана Костя Гордієнка. З першого дня повномасштабного вторгнення росії на територію України став на захист Батьківщини. З березня 2022 р. служив у лавах 4-ї окремої танкової бригади імені гетьмана Івана Виговського.</p>
+                <p>26 грудня 2022 р. воїн помер у лікарні міста Харкова. Похований у місті Пустомити Львівського району Львівської області.</p>
+                <p>В Олексія залишилися мати, дружина та доньки.</p>
             </div>
         </section>
 
         <section class="content-section">
-            <h2 class="section-title">🕯️ Пам'ять та спогади</h2>
-            <div class="bio-text">
-                <p>Побратими та жителі громади пам'ятають Олексія як мужнього Воїна, який до останнього подиху залишався вірним військовій присязі та своїй Батьківщині.</p>
-                <p><em>Вічна пам'ять та шана Герою!</em></p>
-            </div>
+            <h2 class="section-title">🎖️ Нагороди та відзнаки</h2>
+            <ul class="awards-list">
+                <li class="award-item">
+                    <div class="award-icon">🎖️</div>
+                    <div>
+                        <div class="award-title">Нагрудний знак «За заслуги перед 4 ОТБР»</div>
+                        <div class="award-desc">24 серпня 2022 р. нагороджений нагрудним знаком від командира 4-ї окремої танкової бригади імені гетьмана Івана Виговського.</div>
+                    </div>
+                </li>
+            </ul>
         </section>
 
     </main>
