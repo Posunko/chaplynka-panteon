@@ -629,3 +629,56 @@
                         <p class="hero-rank">Капітан | Військовий льотчик</p>
                         <p class="hero-hromada">Загинув у небі Херсонщини</p>
                     </div>
+                    <div>
+                        <p class="hero-dates">25.02.1996 — 24.02.2022</p>
+                        <a href="heroes/sky/shcherbakov-oleksandr-sky.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Олександр Посунько.</p>
+    </footer>
+
+    <!-- Скрипт пошуку та фільтрації -->
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        let currentFilter = 'all';
+
+        searchInput.addEventListener('input', filterHeroes);
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.getAttribute('data-filter');
+                filterHeroes();
+            });
+        });
+
+        function filterHeroes() {
+            const query = searchInput.value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.hero-card');
+
+            cards.forEach(card => {
+                const name = card.querySelector('.hero-name').textContent.toLowerCase();
+                const hromada = card.getAttribute('data-hromada');
+
+                const matchesSearch = name.includes(query);
+                const matchesHromada = currentFilter === 'all' || hromada === currentFilter;
+
+                if (matchesSearch && matchesHromada) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
