@@ -578,20 +578,27 @@
                     </div>
                 </div>
             </article>
-<!-- Картка Антона Мощенка для book.html -->
-<a href="khrestivka/moshchenko-anton.html" class="hero-card">
-    <div class="hero-card-img-box">
-        <img src="khrestivka/img/moshchenko-anton.jpeg" alt="Мощенко Антон Леонідович" class="hero-card-img">
-        <div class="hero-card-ribbon">🕯️</div>
-    </div>
-    <div class="hero-card-info">
-        <span class="hero-card-rank">Солдат</span>
-        <h3 class="hero-card-name">Мощенко Антон Леонідович</h3>
-        <p class="hero-card-dates">10.08.2002 — 01.02.2023</p>
-        <span class="hero-card-unit">Окрема президентська бригада</span>
-    </div>
-</a>
-            <!-- 9. Сидоренко Володимир Сергійович -->
+
+            <!-- 9. Мощенко Антон Леонідович -->
+            <article class="hero-card" data-hromada="khrestivka">
+                <div class="card-img-container">
+                    <img src="heroes/khrestivka/img/moshchenko-anton.jpeg" alt="Мощенко Антон Леонідович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Мощенко Антон Леонідович</h3>
+                        <p class="hero-rank">Солдат | Навідник</p>
+                        <p class="hero-hromada">Хрестівська громада</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">10.08.2002 — 01.02.2023</p>
+                        <a href="heroes/khrestivka/moshchenko-anton.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 10. Сидоренко Володимир Сергійович -->
             <article class="hero-card" data-hromada="chaplynka">
                 <div class="card-img-container">
                     <img src="heroes/chaplynka/img/sydorenko-volodymyr-chap.jpeg" alt="Сидоренко Володимир Сергійович" class="hero-img">
@@ -610,67 +617,15 @@
                 </div>
             </article>
           
-<!-- Олександра Щербакова (Вартові неба) -->
-<article class="hero-card" data-hromada="sky">
-    <div class="card-img-container">
-        <img src="heroes/sky/img/shcherbakov-oleksandr-sky.png" alt="Щербаков Олександр Олександрович" class="hero-img">
-        <div class="mourning-ribbon">🕯️</div>
-    </div>
-    <div class="card-body">
-        <div>
-            <h3 class="hero-name">Щербаков Олександр Олександрович</h3>
-            <p class="hero-rank">Капітан | Військовий льотчик</p>
-            <p class="hero-hromada">Загинув у небі Херсонщини</p>
-        </div>
-        <div>
-            <p class="hero-dates">25.02.1996 — 24.02.2022</p>
-            <a href="heroes/sky/shcherbakov-oleksandr-sky.html" class="btn-card">Пам'ятна сторінка</a>
-        </div>
-    </div>
-</article>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Олександр Посунько.</p>
-    </footer>
-
-    <!-- Скрипт пошуку та фільтрації -->
-    <script>
-        const searchInput = document.getElementById('searchInput');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-
-        let currentFilter = 'all';
-
-        searchInput.addEventListener('input', filterHeroes);
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentFilter = btn.getAttribute('data-filter');
-                filterHeroes();
-            });
-        });
-
-        function filterHeroes() {
-            const query = searchInput.value.toLowerCase().trim();
-            const cards = document.querySelectorAll('.hero-card');
-
-            cards.forEach(card => {
-                const name = card.querySelector('.hero-name').textContent.toLowerCase();
-                const hromada = card.getAttribute('data-hromada');
-
-                const matchesSearch = name.includes(query);
-                const matchesHromada = currentFilter === 'all' || hromada === currentFilter;
-
-                if (matchesSearch && matchesHromada) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-    </script>
-</body>
-</html>
+            <!-- 11. Щербаков Олександр Олександрович (Вартові неба) -->
+            <article class="hero-card" data-hromada="sky">
+                <div class="card-img-container">
+                    <img src="heroes/sky/img/shcherbakov-oleksandr-sky.png" alt="Щербаков Олександр Олександрович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Щербаков Олександр Олександрович</h3>
+                        <p class="hero-rank">Капітан | Військовий льотчик</p>
+                        <p class="hero-hromada">Загинув у небі Херсонщини</p>
+                    </div>
