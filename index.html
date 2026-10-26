@@ -120,24 +120,6 @@
             color: var(--accent-gold);
         }
 
-        .btn-header {
-            padding: 0.6rem 1.4rem;
-            background: transparent;
-            border: 1px solid var(--accent-gold);
-            color: var(--accent-gold);
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        .btn-header:hover {
-            background: var(--accent-gold);
-            color: var(--bg-color);
-        }
-
         /* Головний банер */
         .hero-banner {
             max-width: 900px;
@@ -146,29 +128,20 @@
             text-align: center;
         }
 
-        /* Пульсація плашки */
+        /* Пульсація плашки як свічка */
         .memorial-badge {
             display: inline-block;
-            padding: 0.4rem 1.2rem;
-            border: 1px solid var(--accent-gold);
+            padding: 0.5rem 1.4rem;
+            border: 2px solid var(--accent-gold);
             border-radius: 30px;
             color: var(--accent-gold);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             margin-bottom: 1.8rem;
-            background: rgba(229, 190, 100, 0.05);
-            animation: badgeGlow 3s infinite alternate ease-in-out;
-        }
-
-        @keyframes badgeGlow {
-            from {
-                box-shadow: 0 0 5px rgba(229, 190, 100, 0.1);
-            }
-            to {
-                box-shadow: 0 0 15px rgba(229, 190, 100, 0.35);
-            }
+            background: rgba(229, 190, 100, 0.1);
+            animation: candlePulse 2.5s infinite ease-in-out;
         }
 
         .hero-title {
@@ -232,6 +205,23 @@
             color: var(--accent-gold);
         }
 
+        .btn-add-info {
+            padding: 0.9rem 2.2rem;
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-add-info:hover {
+            background: var(--accent-gold);
+            color: var(--bg-color);
+        }
+
         /* Підвал */
         footer {
             text-align: center;
@@ -261,7 +251,7 @@
                 gap: 1rem;
             }
 
-            .btn-primary, .btn-secondary {
+            .btn-primary, .btn-secondary, .btn-add-info {
                 width: 100%;
                 max-width: 320px;
                 text-align: center;
@@ -273,27 +263,23 @@
 
     <!-- Шапка -->
     <header>
-    <a href="index.html" class="logo-area">
-        <div class="logo-icon">🕯️</div>
-        <div class="logo-text">
-            <h2>Пантеон Чаплинського краю</h2>
-            <span>CHAPLYNKA-PANTEON.PP.UA</span>
-        </div>
-    </a>
+        <a href="index.html" class="logo-area">
+            <div class="logo-icon">🕯️</div>
+            <div class="logo-text">
+                <h2>Пантеон Чаплинського краю</h2>
+                <span>CHAPLYNKA-PANTEON.PP.UA</span>
+            </div>
+        </a>
 
-    <nav>
-        <a href="index.html" class="active">Головна</a>
-        <a href="book.html">Книга пам'яті</a>
-        <a href="about.html">Про проєкт</a>
-       <a href="mailto:posunko.oleksa@gmail.com" title="posunko.oleksa@gmail.com">Зворотний зв'язок</a>
-    </nav>
+        <nav>
+            <a href="index.html" class="active">Головна</a>
+            <a href="mailto:posunko.oleksa@gmail.com" title="posunko.oleksa@gmail.com">Зворотний зв'язок</a>
+        </nav>
+    </header>
 
-    <a href="add-hero.html" class="btn-header">Подати інформацію</a>
-</header>
-
-    <!-- ОРИГІНАЛЬНИЙ ТЕКСТ ГОЛОВНОГО БЛОКУ -->
+    <!-- Головна частина -->
     <main class="hero-banner">
-        <div class="memorial-badge">Вічна пам'ять незламним</div>
+        <div class="memorial-badge">Герої не вмирають!</div>
         
         <h1 class="hero-title">Герої не вмирають,<br>вони живі в наших серцях</h1>
         
@@ -305,13 +291,13 @@
         <div class="cta-group">
             <a href="book.html" class="btn-primary">Перейти до Книги пам'яті</a>
             <a href="about.html" class="btn-secondary">Про ініціативу</a>
+            <a href="add-hero.html" class="btn-add-info">Подати інформацію</a>
         </div>
     </main>
 
     <!-- Підвал -->
     <footer>
-        <p>&copy; 2026.
-            Олександр Посунько.</p>
+        <p>&copy; 2026. Олександр Посунько.</p>
     </footer>
 
 </body>
