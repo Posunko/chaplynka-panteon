@@ -160,76 +160,83 @@
             word-wrap: break-word;
         }
 
-        /* Анімований вірш з ефектом «золотавого спалаху» при появі */
+        /* АНІМАЦІЯ "КАРАОКЕ" ДЛЯ ВІРША */
         .poem-container {
             font-style: italic;
             max-width: 650px;
             margin: 0 auto 2.5rem;
             line-height: 1.8;
-            color: var(--text-secondary);
             font-size: 1.05rem;
         }
 
         .poem-line {
             display: block;
             opacity: 0;
-            transform: translateY(12px);
-            animation: glowText 2.2s forwards cubic-bezier(0.25, 1, 0.5, 1);
+            transform: translateY(8px);
+            /* Градієнт для ефекту підсвітки літер у стилі караоке */
+            background: linear-gradient(to right, 
+                var(--accent-gold) 0%, 
+                #ffdf8c 45%, 
+                var(--text-secondary) 55%, 
+                var(--text-secondary) 100%);
+            background-size: 200% 100%;
+            background-position: 100% 0;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: karaokeLine 2.2s forwards cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        .poem-line:nth-child(1) { animation-delay: 0.4s; }
-        .poem-line:nth-child(2) { animation-delay: 1.0s; }
-        .poem-line:nth-child(3) { animation-delay: 1.6s; }
-        .poem-line:nth-child(4) { animation-delay: 2.2s; }
-        .poem-line:nth-child(5) { animation-delay: 2.8s; }
-        .poem-line:nth-child(6) { animation-delay: 3.4s; }
-        .poem-line:nth-child(7) { animation-delay: 4.0s; }
-        
-        /* Анімація появи + підсвічування, яке згасає до звичайного кольору */
-        @keyframes glowText {
+        /* Хвиля підсвітки по черзі для кожного рядка */
+        .poem-line:nth-child(1) { animation-delay: 0.3s; }
+        .poem-line:nth-child(2) { animation-delay: 1.2s; }
+        .poem-line:nth-child(3) { animation-delay: 2.1s; }
+        .poem-line:nth-child(4) { animation-delay: 3.0s; }
+        .poem-line:nth-child(5) { animation-delay: 3.9s; }
+        .poem-line:nth-child(6) { animation-delay: 4.8s; }
+        .poem-line:nth-child(7) { animation-delay: 5.7s; }
+
+        @keyframes karaokeLine {
             0% {
                 opacity: 0;
-                transform: translateY(12px);
-                color: var(--accent-gold);
-                text-shadow: 0 0 12px rgba(229, 190, 100, 0.8);
+                transform: translateY(8px);
+                background-position: 100% 0;
             }
-            35% {
+            30% {
                 opacity: 1;
                 transform: translateY(0);
-                color: var(--accent-gold);
-                text-shadow: 0 0 15px rgba(229, 190, 100, 0.9);
+                background-position: 50% 0; /* Момент спалаху золотом */
             }
             100% {
                 opacity: 1;
                 transform: translateY(0);
-                color: var(--text-secondary);
-                text-shadow: none;
+                background-position: 0% 0; /* Плавний перехід до звичайного кольору */
             }
         }
 
-        /* Окреме постійне сяйво для слова «Живі!» */
+        /* Кульмінація: слово "Живі!" спалахує золотом і залишається сяяти */
         .alive-word {
             display: block;
             opacity: 0;
             font-style: normal;
             font-weight: 700;
             letter-spacing: 2px;
-            animation: glowAlivePermanent 2.5s forwards cubic-bezier(0.25, 1, 0.5, 1);
-            animation-delay: 4.6s;
+            color: var(--accent-gold);
+            -webkit-text-fill-color: var(--accent-gold);
+            text-shadow: 0 0 12px rgba(229, 190, 100, 0.8);
+            animation: karaokeAlive 2.5s forwards cubic-bezier(0.25, 1, 0.5, 1);
+            animation-delay: 6.6s;
         }
 
-        @keyframes glowAlivePermanent {
+        @keyframes karaokeAlive {
             0% {
                 opacity: 0;
-                transform: translateY(12px);
-                color: var(--accent-gold);
-                text-shadow: 0 0 5px rgba(229, 190, 100, 0.3);
+                transform: translateY(10px) scale(0.95);
+                text-shadow: 0 0 5px rgba(229, 190, 100, 0.2);
             }
             100% {
                 opacity: 1;
-                transform: translateY(0);
-                color: var(--accent-gold);
-                text-shadow: 0 0 14px rgba(229, 190, 100, 0.7);
+                transform: translateY(0) scale(1);
+                text-shadow: 0 0 16px rgba(229, 190, 100, 0.9);
             }
         }
 
@@ -240,12 +247,12 @@
             color: var(--accent-gold);
             font-style: normal;
             opacity: 0;
-            transform: translateY(10px);
-            animation: floatUpAuthor 2s forwards cubic-bezier(0.25, 1, 0.5, 1);
-            animation-delay: 5.2s;
+            transform: translateY(8px);
+            animation: floatAuthor 2s forwards ease-out;
+            animation-delay: 7.3s;
         }
 
-        @keyframes floatUpAuthor {
+        @keyframes floatAuthor {
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -492,7 +499,7 @@
         <a href="add-hero.html" class="btn-header">Подати інформацію</a>
     </header>
 
-    <!-- Заголовок та анімований вірш із хвилею сяйва -->
+    <!-- Заголовок та анімований вірш у стилі караоке -->
     <section class="page-header">
         <h1 class="page-title">Книга пам'яті Чаплинського краю</h1>
         
