@@ -160,12 +160,12 @@
             word-wrap: break-word;
         }
 
-        /* АНІМАЦІЯ "КАРАОКЕ" ДЛЯ ВІРША */
+        /* СПОВІЛЬНЕНА АНІМАЦІЯ "КАРАОКЕ" ДЛЯ ВІРША */
         .poem-container {
             font-style: italic;
             max-width: 650px;
             margin: 0 auto 2.5rem;
-            line-height: 1.8;
+            line-height: 1.9;
             font-size: 1.05rem;
         }
 
@@ -173,47 +173,52 @@
             display: block;
             opacity: 0;
             transform: translateY(8px);
-            /* Градієнт для ефекту підсвітки літер у стилі караоке */
+            /* Плавний градієнт підсвічування літер */
             background: linear-gradient(to right, 
                 var(--accent-gold) 0%, 
-                #ffdf8c 45%, 
-                var(--text-secondary) 55%, 
+                #ffdf8c 40%, 
+                var(--text-secondary) 60%, 
                 var(--text-secondary) 100%);
-            background-size: 200% 100%;
+            background-size: 250% 100%;
             background-position: 100% 0;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: karaokeLine 2.2s forwards cubic-bezier(0.25, 1, 0.5, 1);
+            animation: karaokeLineSlow 3.2s forwards cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        /* Хвиля підсвітки по черзі для кожного рядка */
-        .poem-line:nth-child(1) { animation-delay: 0.3s; }
-        .poem-line:nth-child(2) { animation-delay: 1.2s; }
-        .poem-line:nth-child(3) { animation-delay: 2.1s; }
-        .poem-line:nth-child(4) { animation-delay: 3.0s; }
-        .poem-line:nth-child(5) { animation-delay: 3.9s; }
-        .poem-line:nth-child(6) { animation-delay: 4.8s; }
-        .poem-line:nth-child(7) { animation-delay: 5.7s; }
+        /* Сповільнені інтервали (1.8 секунди між рядками для комфортного читання) */
+        .poem-line:nth-child(1) { animation-delay: 0.5s; }
+        .poem-line:nth-child(2) { animation-delay: 2.3s; }
+        .poem-line:nth-child(3) { animation-delay: 4.1s; }
+        .poem-line:nth-child(4) { animation-delay: 5.9s; }
+        .poem-line:nth-child(5) { animation-delay: 7.7s; }
+        .poem-line:nth-child(6) { animation-delay: 9.5s; }
+        .poem-line:nth-child(7) { animation-delay: 11.3s; }
 
-        @keyframes karaokeLine {
+        @keyframes karaokeLineSlow {
             0% {
                 opacity: 0;
                 transform: translateY(8px);
                 background-position: 100% 0;
             }
-            30% {
+            25% {
                 opacity: 1;
                 transform: translateY(0);
-                background-position: 50% 0; /* Момент спалаху золотом */
+                background-position: 60% 0;
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(0);
+                background-position: 30% 0; /* М'яке зчитування золотом */
             }
             100% {
                 opacity: 1;
                 transform: translateY(0);
-                background-position: 0% 0; /* Плавний перехід до звичайного кольору */
+                background-position: 0% 0; /* Перехід до основного кольору */
             }
         }
 
-        /* Кульмінація: слово "Живі!" спалахує золотом і залишається сяяти */
+        /* Кульмінація: «Живі!» з'являється після всього вірша і залишається сяяти */
         .alive-word {
             display: block;
             opacity: 0;
@@ -223,11 +228,11 @@
             color: var(--accent-gold);
             -webkit-text-fill-color: var(--accent-gold);
             text-shadow: 0 0 12px rgba(229, 190, 100, 0.8);
-            animation: karaokeAlive 2.5s forwards cubic-bezier(0.25, 1, 0.5, 1);
-            animation-delay: 6.6s;
+            animation: karaokeAliveSlow 3s forwards cubic-bezier(0.25, 1, 0.5, 1);
+            animation-delay: 13.1s;
         }
 
-        @keyframes karaokeAlive {
+        @keyframes karaokeAliveSlow {
             0% {
                 opacity: 0;
                 transform: translateY(10px) scale(0.95);
@@ -249,7 +254,7 @@
             opacity: 0;
             transform: translateY(8px);
             animation: floatAuthor 2s forwards ease-out;
-            animation-delay: 7.3s;
+            animation-delay: 14.2s;
         }
 
         @keyframes floatAuthor {
@@ -499,7 +504,7 @@
         <a href="add-hero.html" class="btn-header">Подати інформацію</a>
     </header>
 
-    <!-- Заголовок та анімований вірш у стилі караоке -->
+    <!-- Заголовок та сповільнений анімований вірш у стилі караоке -->
     <section class="page-header">
         <h1 class="page-title">Книга пам'яті Чаплинського краю</h1>
         
