@@ -58,6 +58,14 @@
             text-decoration: none;
         }
 
+        /* Вирівнювання назви та адреси строго по центру */
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
         .logo-text h2 {
             font-family: 'Playfair Display', serif;
             font-size: 1.2rem;
@@ -306,7 +314,7 @@
 </head>
 <body>
 
-    <!-- Шапка (з назвою, без свічки) -->
+    <!-- Шапка з центрованим логотипом та адресою -->
     <header>
         <a href="index.html" class="logo-area">
             <div class="logo-text">
