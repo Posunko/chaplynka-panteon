@@ -160,7 +160,7 @@
             word-wrap: break-word;
         }
 
-        /* Сповільнений анімований вірш */
+        /* Анімований вірш з ефектом «золотавого спалаху» при появі */
         .poem-container {
             font-style: italic;
             max-width: 650px;
@@ -174,32 +174,63 @@
             display: block;
             opacity: 0;
             transform: translateY(12px);
-            animation: floatUpLine 2s forwards cubic-bezier(0.25, 1, 0.5, 1);
+            animation: glowText 2.2s forwards cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .poem-line:nth-child(1) { animation-delay: 0.4s; }
-        .poem-line:nth-child(2) { animation-delay: 0.9s; }
-        .poem-line:nth-child(3) { animation-delay: 1.4s; }
-        .poem-line:nth-child(4) { animation-delay: 1.9s; }
-        .poem-line:nth-child(5) { animation-delay: 2.4s; }
-        .poem-line:nth-child(6) { animation-delay: 2.9s; }
-        .poem-line:nth-child(7) { animation-delay: 3.4s; }
-        .poem-line:nth-child(8) { animation-delay: 3.9s; }
-        .poem-author { animation-delay: 4.4s; }
-
-        @keyframes floatUpLine {
-            to {
+        .poem-line:nth-child(2) { animation-delay: 1.0s; }
+        .poem-line:nth-child(3) { animation-delay: 1.6s; }
+        .poem-line:nth-child(4) { animation-delay: 2.2s; }
+        .poem-line:nth-child(5) { animation-delay: 2.8s; }
+        .poem-line:nth-child(6) { animation-delay: 3.4s; }
+        .poem-line:nth-child(7) { animation-delay: 4.0s; }
+        
+        /* Анімація появи + підсвічування, яке згасає до звичайного кольору */
+        @keyframes glowText {
+            0% {
+                opacity: 0;
+                transform: translateY(12px);
+                color: var(--accent-gold);
+                text-shadow: 0 0 12px rgba(229, 190, 100, 0.8);
+            }
+            35% {
                 opacity: 1;
                 transform: translateY(0);
+                color: var(--accent-gold);
+                text-shadow: 0 0 15px rgba(229, 190, 100, 0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                color: var(--text-secondary);
+                text-shadow: none;
             }
         }
 
+        /* Окреме постійне сяйво для слова «Живі!» */
         .alive-word {
-            color: var(--accent-gold);
-            font-weight: 700;
+            display: block;
+            opacity: 0;
             font-style: normal;
+            font-weight: 700;
             letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(229, 190, 100, 0.4);
+            animation: glowAlivePermanent 2.5s forwards cubic-bezier(0.25, 1, 0.5, 1);
+            animation-delay: 4.6s;
+        }
+
+        @keyframes glowAlivePermanent {
+            0% {
+                opacity: 0;
+                transform: translateY(12px);
+                color: var(--accent-gold);
+                text-shadow: 0 0 5px rgba(229, 190, 100, 0.3);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                color: var(--accent-gold);
+                text-shadow: 0 0 14px rgba(229, 190, 100, 0.7);
+            }
         }
 
         .poem-author {
@@ -210,7 +241,15 @@
             font-style: normal;
             opacity: 0;
             transform: translateY(10px);
-            animation: floatUpLine 2s forwards cubic-bezier(0.25, 1, 0.5, 1);
+            animation: floatUpAuthor 2s forwards cubic-bezier(0.25, 1, 0.5, 1);
+            animation-delay: 5.2s;
+        }
+
+        @keyframes floatUpAuthor {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Блок фільтрів та пошуку */
@@ -409,3 +448,490 @@
 
         @media(max-width: 768px) {
             header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .btn-header {
+                width: 100%;
+            }
+
+            .heroes-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <a href="index.html" class="logo-area">
+            <div class="logo-icon">🕯️</div>
+            <div class="logo-text">
+                <h2>Пантеон Чаплинського краю</h2>
+                <span>CHAPLYNKA-PANTEON.PP.UA</span>
+            </div>
+        </a>
+
+        <nav>
+            <a href="index.html">Головна</a>
+            <a href="book.html" class="active">Книга пам'яті</a>
+            <a href="about.html">Про проєкт</a>
+            <a href="mailto:posunko.oleksa@gmail.com" title="posunko.oleksa@gmail.com">Зворотний зв'язок</a>
+        </nav>
+
+        <a href="add-hero.html" class="btn-header">Подати інформацію</a>
+    </header>
+
+    <!-- Заголовок та анімований вірш із хвилею сяйва -->
+    <section class="page-header">
+        <h1 class="page-title">Книга пам'яті Чаплинського краю</h1>
+        
+        <p class="poem-container">
+            <span class="poem-line">Ніхто не забутий.</span>
+            <span class="poem-line">На полі ніхто не згорів:</span>
+            <span class="poem-line">Солдатські портрети</span>
+            <span class="poem-line">На вишитих крилах пливуть…</span>
+            <span class="poem-line">І доки є пам’ять в людей,</span>
+            <span class="poem-line">І живуть матері,</span>
+            <span class="poem-line">Допоти й сини, що спіткнулись об кулі,</span>
+            <span class="alive-word">Живі!</span>
+            <span class="poem-author">Б. Олійник</span>
+        </p>
+    </section>
+
+    <!-- Пошук і фільтри -->
+    <section class="controls-section">
+        <div class="search-box">
+            <input type="text" id="searchInput" class="search-input" placeholder="Пошук за прізвищем або ім'ям...">
+        </div>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Усі громади</button>
+            <button class="filter-btn" data-filter="chaplynka">Чаплинська</button>
+            <button class="filter-btn" data-filter="khrestivka">Хрестівська</button>
+            <button class="filter-btn" data-filter="prysyvaska">Присиваська</button>
+            <button class="filter-btn" data-filter="ascania">Асканія-Нова</button>
+            <button class="filter-btn" data-filter="sky">Вартові нашого неба</button>
+        </div>
+    </section>
+
+    <!-- Сітка з картками -->
+    <main class="main-container">
+        <div class="heroes-grid" id="heroesGrid">
+
+            <!-- 1. Адаменко Едуард -->
+            <article class="hero-card" data-hromada="chaplynka">
+                <div class="card-img-container">
+                    <img src="heroes/chaplynka/img/adamenko-eduard.jpg" alt="Адаменко Едуард" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Адаменко Едуард</h3>
+                        <p class="hero-rank">Доброволець</p>
+                        <p class="hero-hromada">Чаплинська громада</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">18.07.1991 — 28.02.2022</p>
+                        <a href="heroes/chaplynka/adamenko-eduard.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 2. Бачинський Дмитро Валерійович -->
+            <article class="hero-card" data-hromada="chaplynka">
+                <div class="card-img-container">
+                    <img src="heroes/chaplynka/img/bachynskyy-dmytro.jpg" alt="Бачинський Дмитро Валерійович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Бачинський Дмитро Валерійович</h3>
+                        <p class="hero-rank">Солдат | Сапер</p>
+                        <p class="hero-hromada">Чаплинська громада</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">25.09.1996 — 15.03.2023</p>
+                        <a href="heroes/chaplynka/bachynskyy-dmytro.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 3. Бахітов Марат Фларитович -->
+            <article class="hero-card" data-hromada="chaplynka">
+                <div class="card-img-container">
+                    <img src="heroes/chaplynka/img/bahitov-marat-chap.jpeg" alt="Бахітов Марат Фларитович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Бахітов Марат Фларитович</h3>
+                        <p class="hero-rank">Розвідник | «Бах»</p>
+                        <p class="hero-hromada">Чаплинська громада</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">10.07.1987 — 13.12.2022</p>
+                        <a href="heroes/chaplynka/bahitov-marat-chap.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 4. Гришко Максим Сергійович -->
+            <article class="hero-card" data-hromada="chaplynka">
+                <div class="card-img-container">
+                    <img src="heroes/chaplynka/img/hryshko-maksym-chap.jpeg" alt="Гришко Максим Сергійович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Гришко Максим Сергійович</h3>
+                        <p class="hero-rank">Захисник України</p>
+                        <p class="hero-hromada">Чаплинська громада</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">12.08.1988 — 11.06.2023</p>
+                        <a href="heroes/chaplynka/hryshko-maksym-chap.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 5. Дрозд Олексій Ігорович -->
+            <article class="hero-card" data-hromada="chaplynka">
+                <div class="card-img-container">
+                    <img src="heroes/chaplynka/img/drozd-oleksiy-chap.jpeg" alt="Дрозд Олексій Ігорович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Дрозд Олексій Ігорович</h3>
+                        <p class="hero-rank">Сержант | «Старшина»</p>
+                        <p class="hero-hromada">Чаплинська громада</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">21.03.1994 — 26.12.2022</p>
+                        <a href="heroes/chaplynka/drozd-oleksiy-chap.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 6. Дощик Андрій Олександрович -->
+            <article class="hero-card" data-hromada="khrestivka">
+                <div class="card-img-container">
+                    <img src="heroes/khrestivka/img/doshchyk-andriy.jpg" alt="Дощик Андрій Олександрович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Дощик Андрій Олександрович</h3>
+                        <p class="hero-rank">Полковник НГУ</p>
+                        <p class="hero-hromada">Хрестівська громада</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">07.05.1996 — 08.12.2026</p>
+                        <a href="heroes/khrestivka/doshchyk-andriy.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 7. Жибров Олександр Олександрович (Вартові неба) -->
+            <article class="hero-card" data-hromada="sky">
+                <div class="card-img-container">
+                    <img src="heroes/sky/img/zhybrov-oleksandr-sky.png" alt="Жибров Олександр Олександрович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Жибров Олександр Олександрович</h3>
+                        <p class="hero-rank">Герой України | Полковник</p>
+                        <p class="hero-hromada">Загинув у небі над Чаплинкою</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">09.07.1979 — 24.02.2022</p>
+                        <a href="heroes/sky/zhybrov-oleksandr-sky.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 8. Житкевич Владислав Юрійович -->
+            <article class="hero-card" data-hromada="chaplynka">
+                <div class="card-img-container">
+                    <img src="heroes/chaplynka/img/zhytkevych-vladyslav-chap.jpg" alt="Житкевич Владислав Юрійович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Житкевич Владислав Юрійович</h3>
+                        <p class="hero-rank">Старшина підрозділу</p>
+                        <p class="hero-hromada">Чаплинська громада</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">07.10.1997 — 11.12.2024</p>
+                        <a href="heroes/chaplynka/zhytkevych-vladyslav-chap.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 9. Кобець Сергій Сергійович -->
+            <article class="hero-card" data-hromada="chaplynka">
+                <div class="card-img-container">
+                    <img src="heroes/chaplynka/img/kobec-sergy-chap.jpeg" alt="Кобець Сергій Сергійович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Кобець Сергій Сергійович</h3>
+                        <p class="hero-rank">Солдат</p>
+                        <p class="hero-hromada">Чаплинська громада</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">27.03.1992 — 03.11.2024</p>
+                        <a href="heroes/chaplynka/kobec-sergy-chap.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 10. Коток Олександр -->
+            <article class="hero-card" data-hromada="chaplynka">
+                <div class="card-img-container">
+                    <img src="heroes/chaplynka/img/kotok-oleksandr.jpg" alt="Коток Олександр" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Коток Олександр</h3>
+                        <p class="hero-rank">Захисник України</p>
+                        <p class="hero-hromada">Чаплинська громада</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">2004 — 11.05.2023</p>
+                        <a href="heroes/chaplynka/kotok-oleksandr.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 11. Кулик Артем Юрійович -->
+            <article class="hero-card" data-hromada="chaplynka">
+                <div class="card-img-container">
+                    <img src="heroes/chaplynka/img/kulyk-artem-chap.jpg" alt="Кулик Артем Юрійович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Кулик Артем Юрійович</h3>
+                        <p class="hero-rank">Командир взводу</p>
+                        <p class="hero-hromada">Чаплинська громада</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">13.01.2004 — 11.04.2026</p>
+                        <a href="heroes/chaplynka/kulyk-artem-chap.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 12. Кухарчук Віталій Валерійович -->
+            <article class="hero-card" data-hromada="chaplynka">
+                <div class="card-img-container">
+                    <img src="heroes/chaplynka/img/kuharchuk-vitaliy.jpeg" alt="Кухарчук Віталій Валерійович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Кухарчук Віталій Валерійович</h3>
+                        <p class="hero-rank">Капітан поліції</p>
+                        <p class="hero-hromada">Чаплинська громада</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">01.09.1990 — 05.04.2026</p>
+                        <a href="heroes/chaplynka/kuharchuk-vitaliy.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 13. Лютий Павло Олексійович -->
+            <article class="hero-card" data-hromada="chaplynka">
+                <div class="card-img-container">
+                    <img src="heroes/chaplynka/img/lyutyy-pavlo-chap.jpg" alt="Лютий Павло Олексійович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Лютий Павло Олексійович</h3>
+                        <p class="hero-rank">Старший сержант</p>
+                        <p class="hero-hromada">Чаплинська громада</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">25.06.1986 — 17.03.2026</p>
+                        <a href="heroes/chaplynka/lyutyy-pavlo-chap.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 14. Мощенко Антон Леонідович -->
+            <article class="hero-card" data-hromada="khrestivka">
+                <div class="card-img-container">
+                    <img src="heroes/khrestivka/img/moshchenko-anton.jpeg" alt="Мощенко Антон Леонідович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Мощенко Антон Леонідович</h3>
+                        <p class="hero-rank">Солдат | Навідник</p>
+                        <p class="hero-hromada">Хрестівська громада</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">10.08.2002 — 01.02.2023</p>
+                        <a href="heroes/khrestivka/moshchenko-anton.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 15. Сидоренко Володимир Сергійович -->
+            <article class="hero-card" data-hromada="chaplynka">
+                <div class="card-img-container">
+                    <img src="heroes/chaplynka/img/sydorenko-volodymyr-chap.jpeg" alt="Сидоренко Володимир Сергійович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Сидоренко Володимир Сергійович</h3>
+                        <p class="hero-rank">Молодший сержант</p>
+                        <p class="hero-hromada">Чаплинська громада</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">12.09.1989 — 06.09.2026</p>
+                        <a href="heroes/chaplynka/sydorenko-volodymyr-chap.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 16. Соколов Олександр Васильович -->
+            <article class="hero-card" data-hromada="khrestivka">
+                <div class="card-img-container">
+                    <img src="heroes/khrestivka/img/sokolov-oleksandr.jpeg" alt="Соколов Олександр Васильович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Соколов Олександр Васильович</h3>
+                        <p class="hero-rank">Старший солдат | «Сокол»</p>
+                        <p class="hero-hromada">Хрестівська громада</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">10.08.1995 — 08.09.2023</p>
+                        <a href="heroes/khrestivka/sokolov-oleksandr.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 17. Стогній Юрій Олександрович -->
+            <article class="hero-card" data-hromada="khrestivka">
+                <div class="card-img-container">
+                    <img src="heroes/khrestivka/img/stohniy-yuriy.jpeg" alt="Стогній Юрій Олександрович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Стогній Юрій Олександрович</h3>
+                        <p class="hero-rank">Офіцер ДШВ</p>
+                        <p class="hero-hromada">Хрестівська громада</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">08.10.2001 — 09.09.2025</p>
+                        <a href="heroes/khrestivka/stohniy-yuriy.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 18. Шахов Едуард Олександрович -->
+            <article class="hero-card" data-hromada="khrestivka">
+                <div class="card-img-container">
+                    <img src="heroes/khrestivka/img/shakhov-eduard.jpeg" alt="Шахов Едуард Олександрович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Шахов Едуард Олександрович</h3>
+                        <p class="hero-rank">Молодший сержант | Парамедик</p>
+                        <p class="hero-hromada">Хрестівська громада</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">12.12.1992 — 04.09.2019</p>
+                        <a href="heroes/khrestivka/shakhov-eduard.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+          
+            <!-- 19. Щербаков Олександр Олександрович (Вартові неба) -->
+            <article class="hero-card" data-hromada="sky">
+                <div class="card-img-container">
+                    <img src="heroes/sky/img/shcherbakov-oleksandr-sky.png" alt="Щербаков Олександр Олександрович" class="hero-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3 class="hero-name">Щербаков Олександр Олександрович</h3>
+                        <p class="hero-rank">Капітан | Військовий льотчик</p>
+                        <p class="hero-hromada">Загинув у небі Херсонщини</p>
+                    </div>
+                    <div>
+                        <p class="hero-dates">25.02.1996 — 24.02.2022</p>
+                        <a href="heroes/sky/shcherbakov-oleksandr-sky.html" class="btn-card">Пам'ятна сторінка</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Олександр Посунько.</p>
+    </footer>
+
+    <!-- Скрипт пошуку та фільтрації -->
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        let currentFilter = 'all';
+
+        searchInput.addEventListener('input', filterHeroes);
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.getAttribute('data-filter');
+                filterHeroes();
+            });
+        });
+
+        function filterHeroes() {
+            const query = searchInput.value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.hero-card');
+
+            cards.forEach(card => {
+                const name = card.querySelector('.hero-name').textContent.toLowerCase();
+                const hromada = card.getAttribute('data-hromada');
+
+                const matchesSearch = name.includes(query);
+                const matchesHromada = currentFilter === 'all' || hromada === currentFilter;
+
+                if (matchesSearch && matchesHromada) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
