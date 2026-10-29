@@ -201,4 +201,203 @@
 
         .profile-img {
             width: 100%;
-            height
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .mourning-ribbon {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            width: 38px;
+            height: 38px;
+            background: rgba(14, 10, 7, 0.85);
+            border: 1px solid var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .profile-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            color: var(--accent-gold);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-meta {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-meta div {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .hero-meta strong {
+            color: var(--text-primary);
+            min-width: 130px;
+        }
+
+        .biography-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .biography-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--accent-gold);
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .biography-section p {
+            color: var(--text-primary);
+            font-size: 1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: rgba(14, 10, 7, 0.95);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: auto;
+        }
+
+        @media(max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .btn-header {
+                width: 100%;
+            }
+
+            .profile-header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-img-box {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .profile-details {
+                text-align: center;
+                width: 100%;
+            }
+
+            .hero-meta div {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+
+            .hero-meta strong {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <a href="../../index.html" class="logo-area">
+            <div class="logo-icon">🕯️</div>
+            <div class="logo-text">
+                <h2>Пантеон Чаплинського краю</h2>
+                <span>CHAPLYNKA-PANTEON.PP.UA</span>
+            </div>
+        </a>
+
+        <nav>
+            <a href="../../index.html">Головна</a>
+            <a href="../../book.html" class="active">Книга пам'яті</a>
+            <a href="../../about.html">Про проєкт</a>
+            <a href="mailto:posunko.oleksa@gmail.com" title="posunko.oleksa@gmail.com">Зворотний зв'язок</a>
+        </nav>
+
+        <a href="../../add-hero.html" class="btn-header">Подати інформацію</a>
+    </header>
+
+    <!-- Головний вміст -->
+    <main class="main-container">
+        <a href="../../book.html" class="btn-back">← Повернутися до Книги пам'яті</a>
+
+        <article class="hero-profile">
+            <div class="profile-header">
+                <div class="profile-img-box">
+                    <img src="img/zatorskyy-ruslan.jpg" alt="Заторський Руслан Олександрович" class="profile-img">
+                    <div class="mourning-ribbon">🕯️</div>
+                </div>
+
+                <div class="profile-details">
+                    <h1 class="hero-title">Заторський Руслан Олександрович</h1>
+                    <p class="hero-subtitle">Військовослужбовець ЗСУ</p>
+
+                    <div class="hero-meta">
+                        <div><strong>Громада:</strong> <span>Присиваська громада</span></div>
+                        <div><strong>Статус:</strong> <span>Загинув у російському полоні</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="biography-section">
+                <h3>Пам'ять про Героя</h3>
+                <p>
+                    Заторський Руслан Олександрович — мужній Захисник України, житель Присиваської громади, який став на захист рідної землі та суверенітету нашої держави.
+                </p>
+                <p>
+                    Перебуваючи у російському полоні, Руслан до останнього подиху залишався вірним військовій присязі, своїй Батьківщині та українському народові. Його життя трагічно обірвалося у ворожій неволі.
+                </p>
+                <p>
+                    Світлий спомин про незламного Захисника назавжди залишиться в серцях земляків, а його подвиг буде вічним прикладом мужності та самопожертви. Вічна пам'ять і шана Герою!
+                </p>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Олександр Посунько.</p>
+    </footer>
+
+</body>
+</html>
