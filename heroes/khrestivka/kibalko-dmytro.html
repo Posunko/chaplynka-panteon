@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кібалко Дмитро — Чаплинка Пантеон</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0e0a07; 
+            --card-bg: #18120e;
+            --text-primary: #f5ebd9;
+            --text-secondary: #c2b19b;
+            --accent-gold: #e5be64; 
+            --accent-gold-hover: #ffdf8c;
+            --border-color: #382c21;
+        }
+
+        .page-feedback-block {
+            margin-top: 0.5rem;
+            padding: 1.5rem;
+            background: rgba(229, 190, 100, 0.03);
+            border: 1px dashed var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .feedback-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+        }
+
+        .btn-feedback {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid var(--accent-gold);
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .btn-feedback:hover {
+            background: var(--accent-gold);
+            color: var(--bg-color);
+        }
+
+        .feedback-email-hint {
+            display: block;
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .feedback-email-hint strong {
+            color: var(--accent-gold);
+            cursor: pointer;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: radial-gradient(circle at 50% 20%, rgba(120, 85, 35, 0.1) 0%, rgba(14, 10, 7, 0.95) 70%);
+        }
+
+        header {
+            background-color: rgba(14, 10, 7, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.2rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(229, 190, 100, 0.2);
+            border: 2px solid var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .logo-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        .logo-text span {
+            font-size: 0.7rem;
+            color: var(--accent-gold);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-gold);
+        }
+
+        .btn-header {
+            padding: 0.6rem 1.4rem;
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-header:hover {
+            background: var(--accent-gold);
+            color: var(--bg-color);
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            margin: 2.5rem auto 4rem;
+            padding: 0 1.5rem;
+            flex: 1;
+            width: 100%;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .hero-profile-header {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 2.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .profile-img-box {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background-color: #120e0a;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .mourning-ribbon {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            width: 38px;
+            height: 38px;
+            background: rgba(14, 10, 7, 0.85);
+            border: 1px solid var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-fullname {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            line-height: 1.25;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-badge-rank {
+            display: inline-block;
+            align-self: flex-start;
+            padding: 0.3rem 1rem;
+            background: rgba(229, 190, 100, 0.15);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .info-item {
+            display: flex;
+            font-size: 0.95rem;
+            border-bottom: 1px dashed rgba(56, 44, 33, 0.6);
+            padding-bottom: 0.5rem;
+        }
+
+        .info-label {
+            width: 170px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .info-value {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .content-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .bio-text p {
+            margin-bottom: 1.2rem;
+            color: var(--text-primary);
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        .bio-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: rgba(14, 10, 7, 0.95);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        @media(max-width: 850px) {
+            nav { display: none; }
+            .hero-profile-header { grid-template-columns: 1fr; }
+            .profile-img-box { height: 350px; }
+            .hero-fullname { font-size: 1.8rem; }
+            .info-item { flex-direction: column; }
+            .info-label { width: 100%; margin-bottom: 0.2rem; }
+            .bio-text p { text-align: left !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="../../index.html" class="logo-area">
+            <div class="logo-icon">🕯️</div>
+            <div class="logo-text">
+                <h2>Чаплинка Пантеон</h2>
+                <span>CHAPLYNKA-PANTEON.PP.UA</span>
+            </div>
+        </a>
+
+        <nav>
+            <a href="../../index.html">Головна</a>
+            <a href="../../book.html" class="active">Книга пам'яті</a>
+            <a href="../../about.html">Про проєкт</a>
+            <a href="mailto:posunko.oleksa@gmail.com">Зворотний зв'язок</a>
+        </nav>
+
+        <a href="../../add-hero.html" class="btn-header">Подати інформацію</a>
+    </header>
+
+    <main class="hero-container">
+        <a href="../../book.html" class="back-link">← Повернутися до Книги пам'яті</a>
+
+        <section class="hero-profile-header">
+            <div class="profile-img-box">
+                <img src="img/kibalko-dmytro.jpeg" alt="Кібалко Дмитро" class="profile-img">
+                <div class="mourning-ribbon">🕯️</div>
+            </div>
+
+            <div class="profile-info">
+                <span class="hero-badge-rank">Захисник України</span>
+                <h1 class="hero-fullname">Кібалко Дмитро</h1>
+                
+                <ul class="info-list">
+                    <li class="info-item">
+                        <span class="info-label">Дата народження:</span>
+                        <span class="info-value">Інформація уточнюється</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Дата загибелі:</span>
+                        <span class="info-value">Інформація уточнюється</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Громада:</span>
+                        <span class="info-value">Хрестівська громада</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Статус:</span>
+                        <span class="info-value">Захисник України</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Життєвий шлях та подвиг</h2>
+            <div class="bio-text">
+                <p>Кібалко Дмитро — мужній Захисник України, житель Хрестівської громади, який став на захист суверенітету та територіальної цілісності нашої Батьківщини.</p>
+                <p>Інформація щодо життєвого шляху та обставин загибелі воїна наразі збирається та уточнюється. Вічна пам'ять і шана Герою!</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Нагороди та відзнаки</h2>
+            <div class="bio-text">
+                <p>Інформація про державні та відомчі нагороди уточнюється. Якщо ви володієте підтвердженими даними щодо нагород воїна, будь ласка, повідомте нам.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Блок зворотного зв'язку -->
+    <div class="page-feedback-block">
+        <p class="feedback-text">Виявили неточність, маєте доповнення або запит щодо змісту сторінки?</p>
+        
+        <a href="mailto:posunko.oleksa@gmail.com?subject=Запит%20щодо%20сторінки:%20Кібалко%20Дмитро" 
+           class="btn-feedback" 
+           title="Надіслати лист на posunko.oleksa@gmail.com">
+            ✉️ Повідомити про неточність або надіслати зауваження
+        </a>
+        
+        <span class="feedback-email-hint">
+            Або напишіть нам напряму: <strong onclick="navigator.clipboard.writeText('posunko.oleksa@gmail.com')">posunko.oleksa@gmail.com</strong>
+        </span>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Чаплинський край. Вічна пам'ять Героям.</p>
+    </footer>
+
+</body>
+</html>
